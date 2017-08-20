@@ -59,7 +59,7 @@ class QuizBase extends MyActiveRecord
             } else if (substr($column->name, -3) === '_id') {
                 $type = 'Select';
                 if (substr($column->name, -6) === '_fn_id') {
-                    $quizFns = self::className() == 'QuizParam'
+                    $quizFns = self::shortClassName() == 'QuizParam'
                         ? QuizFn::find()->all()
                         : QuizFn::find()->where(['or', ['async' => 0], ['async' => null]])->all();
                     foreach ($quizFns as $fn) {
@@ -105,8 +105,13 @@ class QuizBase extends MyActiveRecord
             $inputConfigs[] = $inputConfig;
         }
         return [
-            'type' => join('', array_slice(explode('\\', self::className()), -1)),
+            'type' => self::shortClassName(),
             'attrs' => $inputConfigs
         ];
+    }
+
+    public static function shortClassName()
+    {
+         return join('', array_slice(explode('\\', self::className()), -1));
     }
 }
