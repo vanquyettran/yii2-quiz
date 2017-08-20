@@ -19,7 +19,9 @@ use Yii;
  * @property integer $options_per_row
  * @property integer $options_per_small_row
  * @property integer $quiz_input_group_id
+ * @property integer $image_id
  *
+ * @property Image $image
  * @property QuizInputGroup $quizInputGroup
  * @property QuizInputOption[] $quizInputOptions
  * @property QuizInputToInputValidator[] $quizInputToInputValidators
@@ -42,9 +44,10 @@ class QuizInput extends QuizBase
     {
         return [
             [['name', 'var_name', 'type', 'quiz_input_group_id'], 'required'],
-            [['is_open_question', 'shuffle_options', 'sort_order', 'options_per_row', 'options_per_small_row', 'quiz_input_group_id'], 'integer'],
+            [['is_open_question', 'shuffle_options', 'sort_order', 'options_per_row', 'options_per_small_row', 'quiz_input_group_id', 'image_id'], 'integer'],
             [['question', 'answer_explanation'], 'string'],
             [['name', 'var_name', 'type'], 'string', 'max' => 255],
+            [['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => Image::className(), 'targetAttribute' => ['image_id' => 'id'], 'except' => 'test'],
             [['quiz_input_group_id'], 'exist', 'skipOnError' => true, 'targetClass' => QuizInputGroup::className(), 'targetAttribute' => ['quiz_input_group_id' => 'id'], 'except' => 'test'],
         ];
     }
@@ -67,7 +70,16 @@ class QuizInput extends QuizBase
             'options_per_row' => 'Options Per Row',
             'options_per_small_row' => 'Options Per Small Row',
             'quiz_input_group_id' => 'Quiz Input Group ID',
+            'image_id' => 'Image ID',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getImage()
+    {
+        return $this->hasOne(Image::className(), ['id' => 'image_id']);
     }
 
     /**
