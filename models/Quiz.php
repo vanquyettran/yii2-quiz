@@ -157,6 +157,17 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                 }, $quizInputOptions);
                 $attrs2['quizInputOptions'] = $_quizInputOptions;
 
+                $quizInputImages = $item2->getQuizInputImages()->orderBy('sort_order asc')->all();
+                $_quizInputImages = array_map(function ($item3) {
+                    /**
+                     * @var $item3 QuizInputImage
+                     */
+                    $attrs3 = $item3->attributes;
+                    $attrs3['source'] = $item3->image->getSource();
+                    return $attrs3;
+                }, $quizInputImages);
+                $attrs2['quizInputImages'] = $_quizInputImages;
+
                 $quizInputValidators = $item2->quizInputValidators;
                 $attrs2['quiz_input_validator_ids'] = array_map(function ($item) {
                     return $item->id;

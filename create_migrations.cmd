@@ -37,6 +37,30 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_shuffle
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_canvas_background_color_column_to_quiz_result_table --fields="canvas_background_color:string"
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_font_family_column_font_size_column_font_weight_column_font_style_column_min_width_column_min_height_column_to_quiz_style_table --fields="font_family:string,font_size:string,font_weight:string,font_style:string,min_width:string,min_height:string"
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_view_count_column_like_count_column_comment_count_column_share_count_column_to_quiz_table --fields="view_count:integer:defaultValue(0),like_count:integer:defaultValue(0),comment_count:integer:defaultValue(0),share_count:integer:defaultValue(0)"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_async_column_to_quiz_fn_table --fields="async:smallInteger(1)"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_repeat_count_column_to_quiz_input_option_table --fields="repeat_count:integer"
 
-php yii my-migrate/create add_async_column_to_quiz_fn_table --migrationPath=@modules/quiz/migrations --fields="async:smallInteger(1)"
-php yii my-migrate/create add_image_id_column_to_quiz_input_table --migrationPath=@modules/quiz/migrations --fields="image_id:integer:foreignKey(image)"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" create_quiz_input_image_table --fields="sort_order:integer,quiz_input_id:integer:notNull:foreignKey,image_id:integer:notNull:foreignKey"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

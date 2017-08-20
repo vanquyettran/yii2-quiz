@@ -15,6 +15,7 @@ use common\modules\quiz\models\QuizCharacterMediumDataSorter;
 use common\modules\quiz\models\QuizCharacterMediumToStyle;
 use common\modules\quiz\models\QuizInput;
 use common\modules\quiz\models\QuizInputGroup;
+use common\modules\quiz\models\QuizInputImage;
 use common\modules\quiz\models\QuizInputOption;
 use common\modules\quiz\models\QuizObjectFilter;
 use common\modules\quiz\models\QuizParam;
@@ -54,7 +55,10 @@ class DefaultController extends BaseController
     {
         $inputGroupConfig = QuizInputGroup::modelConfig();
         $inputConfig = QuizInput::modelConfig();
-        $inputConfig['childConfigs'] = [QuizInputOption::modelConfig()];
+        $inputConfig['childConfigs'] = [
+            QuizInputImage::modelConfig(),
+            QuizInputOption::modelConfig(),
+        ];
         $inputGroupConfig['childConfigs'] = [$inputConfig];
 
         $characterConfig = QuizCharacter::modelConfig();
@@ -109,7 +113,10 @@ class DefaultController extends BaseController
 
         $inputGroupConfig = QuizInputGroup::modelConfig();
         $inputConfig = QuizInput::modelConfig();
-        $inputConfig['childConfigs'] = [QuizInputOption::modelConfig()];
+        $inputConfig['childConfigs'] = [
+            QuizInputImage::modelConfig(),
+            QuizInputOption::modelConfig(),
+        ];
         $inputGroupConfig['childConfigs'] = [$inputConfig];
 
         $characterConfig = QuizCharacter::modelConfig();
@@ -365,7 +372,10 @@ class DefaultController extends BaseController
                         }
                         unset($attr);
                         $childData['childConfigs'] = $inputConfig['childConfigs'];
-                        $grandChildren = $child->quizInputOptions;
+                        $grandChildren = array_merge(
+                            $child->quizInputOptions,
+                            $child->quizInputImages
+                        );
                         break;
                     case 'QuizInputOption':
                         /**
@@ -632,6 +642,7 @@ class DefaultController extends BaseController
             'QuizInputGroup',
             'QuizInput',
             'QuizInputOption',
+            'QuizInputImage',
             'QuizShape',
             'QuizObjectFilter',
             'QuizCharacterDataFilter',
@@ -678,7 +689,10 @@ class DefaultController extends BaseController
                 }  else if ($parent instanceof QuizInputGroup) {
                     $oldChildren = $parent->quizInputs;
                 } else if ($parent instanceof QuizInput) {
-                    $oldChildren = $parent->quizInputOptions;
+                    $oldChildren = array_merge(
+                        $parent->quizInputOptions,
+                        $parent->quizInputImages
+                    );
                 }
             }
             foreach ($data['items'] as $childData) {
