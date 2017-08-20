@@ -35,6 +35,7 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
                     'Datetime',
                     'Date',
                     'WordGuessing',
+                    'ImageMapComparing',
                 ];
             }
             $attr = $newAttr;

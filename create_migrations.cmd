@@ -39,6 +39,8 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_font_fa
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_view_count_column_like_count_column_comment_count_column_share_count_column_to_quiz_table --fields="view_count:integer:defaultValue(0),like_count:integer:defaultValue(0),comment_count:integer:defaultValue(0),share_count:integer:defaultValue(0)"
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_async_column_to_quiz_fn_table --fields="async:smallInteger(1)"
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_repeat_count_column_to_quiz_input_option_table --fields="repeat_count:integer"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_images_per_row_column_images_per_small_row_column_to_quiz_input_table --fields="images_per_row:integer,images_per_small_row:integer"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_shuffle_images_column_to_quiz_input_table --fields="shuffle_images:smallInteger(1)"
 
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" create_quiz_input_image_table --fields="sort_order:integer,quiz_input_id:integer:notNull:foreignKey,image_id:integer:notNull:foreignKey"
 
