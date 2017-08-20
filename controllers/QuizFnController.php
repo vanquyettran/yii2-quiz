@@ -13,7 +13,7 @@ use yii\helpers\VarDumper;
 /**
  * QuizFnController implements the CRUD actions for QuizFn model.
  */
-class QuizFnController extends BaseController 
+class QuizFnController extends BaseController
 {
     /**
      * @inheritdoc
