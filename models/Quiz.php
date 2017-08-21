@@ -39,7 +39,8 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                 case 'timeout_handling':
                     $newAttr['type'] = 'Select';
                     $newAttr['options'] = [
-                        'FinishQuiz'
+                        'ShowResult',
+                        'GameOver',
                     ];
                     break;
             }
