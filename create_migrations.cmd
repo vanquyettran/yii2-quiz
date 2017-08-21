@@ -43,7 +43,7 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_images_
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_shuffle_images_column_to_quiz_input_table --fields="shuffle_images:smallInteger(1)"
 
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_timeout_handling_column_to_quiz_table --fields="timeout_handling:string"
-php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_timeout_handling_column_inputs_auto_next_column_to_quiz_input_group_table --fields="timeout_handling:string,inputs_auto_next:smallInteger(1)"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_timeout_handling_column_to_quiz_input_group_table --fields="timeout_handling:string"
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_auto_next_column_to_quiz_input_table --fields="auto_next:smallInteger(1)"
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_quiz_duration_change_column_input_group_duration_change_column_time_speed_change_column_to_quiz_input_option_table --fields="quiz_duration_change:integer,input_group_duration_change:integer,time_speed_change:integer"
 
