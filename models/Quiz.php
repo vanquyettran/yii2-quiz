@@ -36,6 +36,12 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         ],
                     ];
                     break;
+                case 'timeout_handling':
+                    $newAttr['type'] = 'Select';
+                    $newAttr['options'] = [
+                        'FinishQuiz'
+                    ];
+                    break;
             }
             $attr = $newAttr;
         }

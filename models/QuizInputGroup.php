@@ -26,6 +26,14 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
                         ]
                     ];
                     break;
+                case 'timeout_handling':
+                    $newAttr['type'] = 'Select';
+                    $newAttr['options'] = [
+                        'FinishQuiz',
+                        'SubmitInputGroup',
+                        'IgnoreInputGroup',
+                    ];
+                    break;
             }
             $attr = $newAttr;
         }
