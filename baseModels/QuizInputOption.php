@@ -13,6 +13,10 @@ use Yii;
  * @property integer $score
  * @property integer $correct
  * @property integer $case_sensitive
+ * @property integer $quiz_duration_change
+ * @property integer $input_group_duration_change
+ * @property integer $quiz_time_speed_change
+ * @property integer $input_group_time_speed_change
  * @property string $explanation
  * @property integer $sort_order
  * @property integer $quiz_input_id
@@ -40,7 +44,7 @@ class QuizInputOption extends QuizBase
         return [
             [['value', 'quiz_input_id'], 'required'],
             [['content', 'explanation'], 'string'],
-            [['score', 'correct', 'case_sensitive', 'sort_order', 'quiz_input_id', 'repeat_count'], 'integer'],
+            [['score', 'correct', 'case_sensitive', 'quiz_duration_change', 'input_group_duration_change', 'quiz_time_speed_change', 'input_group_time_speed_change', 'sort_order', 'quiz_input_id', 'repeat_count'], 'integer'],
             [['value'], 'string', 'max' => 255],
             [['quiz_input_id'], 'exist', 'skipOnError' => true, 'targetClass' => QuizInput::className(), 'targetAttribute' => ['quiz_input_id' => 'id'], 'except' => 'test'],
         ];
@@ -58,6 +62,10 @@ class QuizInputOption extends QuizBase
             'score' => 'Score',
             'correct' => 'Correct',
             'case_sensitive' => 'Case Sensitive',
+            'quiz_duration_change' => 'Quiz Duration Change',
+            'input_group_duration_change' => 'Input Group Duration Change',
+            'quiz_time_speed_change' => 'Quiz Time Speed Change',
+            'input_group_time_speed_change' => 'Input Group Time Speed Change',
             'explanation' => 'Explanation',
             'sort_order' => 'Sort Order',
             'quiz_input_id' => 'Quiz Input ID',
