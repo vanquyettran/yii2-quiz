@@ -59,7 +59,7 @@ class m170820_154702_create_quiz_input_image_table extends Migration
             'image_id',
             'image',
             'id',
-            'CASCADE'
+            'RESTRICT'
         );
     }
 
