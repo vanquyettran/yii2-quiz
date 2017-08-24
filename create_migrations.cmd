@@ -51,6 +51,7 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_retry_i
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" create_quiz_input_image_table --fields="sort_order:integer,quiz_input_id:integer:notNull:foreignKey,image_id:integer:notNull:foreignKey"
 
 
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" drop_case_sensitive_column_from_quiz_input_option_table --fields="case_sensitive:smallInteger(1)"
 
 
 
