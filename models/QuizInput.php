@@ -28,7 +28,7 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
                 $newAttr['options'] = [
                     // Limited answers types
                     [
-                        'value' => 'Limited Answers:',
+                        'value' => 'Limited-answers Types:',
                         'disabled' => true,
                     ],
                     'RadioGroup',
@@ -39,7 +39,7 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
                     'ImageMapCheckpointMany',
                     // Unlimited answers types:
                     [
-                        'value' => 'Unlimited Answers:',
+                        'value' => 'Unlimited-answers Types:',
                         'disabled' => true,
                     ],
                     'Text',
