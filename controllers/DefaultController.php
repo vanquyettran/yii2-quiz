@@ -1138,7 +1138,7 @@ class DefaultController extends BaseController
             'state' => $state,
             'updateLink' => Url::to(['update', 'id' => $quiz->id]),
             'success' => empty($allErrors),
-            'errorMessages' => $allErrors,
+            'errors' => $allErrors,
         ]);
 //    }
 //        echo json_encode([
