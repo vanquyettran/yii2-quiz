@@ -759,6 +759,7 @@ class DefaultController extends BaseController
                         = $attrs['quiz_character_medium_id']
                         = $attrs['quiz_input_group_id']
                         = $attrs['quiz_input_id']
+                        = $attrs['quiz_input_option_id']
                         = $parent->id;
                     $model->setAttributes($attrs);
                     if (!$model->validate()) {

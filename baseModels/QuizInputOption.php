@@ -42,7 +42,7 @@ class QuizInputOption extends QuizBase
     public function rules()
     {
         return [
-            [['value', 'quiz_input_id'], 'required'],
+            [['quiz_input_id'], 'required'],
             [['content', 'explanation'], 'string'],
             [['score', 'correct', 'case_sensitive', 'quiz_duration_change', 'input_group_duration_change', 'time_speed_change', 'sort_order', 'quiz_input_id', 'repeat_count'], 'integer'],
             [['value'], 'string', 'max' => 255],
