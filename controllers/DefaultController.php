@@ -508,9 +508,9 @@ class DefaultController extends BaseController
             $quiz = new Quiz();
         }
         $quiz->setAttributes($attrs);
-        $errors = [];
+        $allErrors = [];
         if (!$quiz->validate()) {
-            $errors['Quiz#'] = $quiz->errors;
+            $allErrors['Quiz#'] = $quiz->errors;
             foreach ($quiz->errors as $attrName => $errors) {
                 foreach ($state['attrs'] as &$attr) {
                     if ($attrName == $attr['name']) {
@@ -671,7 +671,7 @@ class DefaultController extends BaseController
          */
         $loadModels = function (&$data, $parent, $test)
             use ($parseAttrs, $testingId, $quiz_component_types, $addJunction,
-                &$loadModels, &$errors, &$task_order, &$sort_order, &$junctions) {
+                &$loadModels, &$allErrors, &$task_order, &$sort_order, &$junctions) {
             // Delete no longer children
             $oldChildren = [];
             if (!$parent->isNewRecord) {
@@ -765,7 +765,7 @@ class DefaultController extends BaseController
                     if (!$model->validate()) {
                         $task_order--;
                         $sort_order--;
-                        $errors["{$childData['type']}#{$childData['id']}"] = $model->errors;
+                        $allErrors["{$childData['type']}#{$childData['id']}"] = $model->errors;
                         foreach ($model->errors as $attrName => $errors) {
                             foreach ($childData['attrs'] as &$attr) {
                                 if ($attrName == $attr['name']) {
@@ -842,7 +842,7 @@ class DefaultController extends BaseController
             $quiz->id = $testingId();
         }
         $loadModels($state['childrenData'], $quiz, true);
-        if (empty($errors)) {
+        if (empty($allErrors)) {
             if ($quiz->isNewRecord) {
                 $quiz->id = null;
             }
@@ -1137,10 +1137,8 @@ class DefaultController extends BaseController
         echo json_encode([
             'state' => $state,
             'updateLink' => Url::to(['update', 'id' => $quiz->id]),
-            'success' => empty($errors),
-            'errorMessages' => array_map(function ($error) {
-                return VarDumper::dumpAsString($error);
-            }, $errors),
+            'success' => empty($allErrors),
+            'errorMessages' => $allErrors,
         ]);
 //    }
 //        echo json_encode([
