@@ -22,6 +22,7 @@ use Yii;
  * @property integer $repeat_count
  *
  * @property QuizInput $quizInput
+ * @property QuizInputOptionChecker[] $quizInputOptionCheckers
  * @property QuizInputOptionToVotedResult[] $quizInputOptionToVotedResults
  * @property QuizResult[] $quizVotedResults
  */
@@ -77,6 +78,14 @@ class QuizInputOption extends QuizBase
     public function getQuizInput()
     {
         return $this->hasOne(QuizInput::className(), ['id' => 'quiz_input_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getQuizInputOptionCheckers()
+    {
+        return $this->hasMany(QuizInputOptionChecker::className(), ['quiz_input_option_id' => 'id']);
     }
 
     /**

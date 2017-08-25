@@ -17,6 +17,7 @@ use common\modules\quiz\models\QuizInput;
 use common\modules\quiz\models\QuizInputGroup;
 use common\modules\quiz\models\QuizInputImage;
 use common\modules\quiz\models\QuizInputOption;
+use common\modules\quiz\models\QuizInputOptionChecker;
 use common\modules\quiz\models\QuizObjectFilter;
 use common\modules\quiz\models\QuizParam;
 use common\modules\quiz\models\QuizResult;
@@ -55,9 +56,13 @@ class DefaultController extends BaseController
     {
         $inputGroupConfig = QuizInputGroup::modelConfig();
         $inputConfig = QuizInput::modelConfig();
+        $inputOptionConfig = QuizInputOption::modelConfig();
+        $inputOptionConfig['childConfigs'] = [
+            QuizInputOptionChecker::modelConfig(),
+        ];
         $inputConfig['childConfigs'] = [
+            $inputOptionConfig,
             QuizInputImage::modelConfig(),
-            QuizInputOption::modelConfig(),
         ];
         $inputGroupConfig['childConfigs'] = [$inputConfig];
 
@@ -113,9 +118,13 @@ class DefaultController extends BaseController
 
         $inputGroupConfig = QuizInputGroup::modelConfig();
         $inputConfig = QuizInput::modelConfig();
+        $inputOptionConfig = QuizInputOption::modelConfig();
+        $inputOptionConfig['childConfigs'] = [
+            QuizInputOptionChecker::modelConfig(),
+        ];
         $inputConfig['childConfigs'] = [
+            $inputOptionConfig,
             QuizInputImage::modelConfig(),
-            QuizInputOption::modelConfig(),
         ];
         $inputGroupConfig['childConfigs'] = [$inputConfig];
 
@@ -161,7 +170,7 @@ class DefaultController extends BaseController
          * @param array $children
          * @return array
          */
-        $getChildrenData = function (array $children) use (&$getChildrenData, $inputGroupConfig, $inputConfig, $characterConfig, $characterMediumConfig) {
+        $getChildrenData = function (array $children) use (&$getChildrenData, $inputGroupConfig, $inputConfig, $inputOptionConfig, $characterConfig, $characterMediumConfig) {
             $childrenData = ['items' => [], 'activeItemId' => null, 'errorItemIds' => []];
             usort($children, function ($a, $b) {
                 /**
@@ -392,6 +401,8 @@ class DefaultController extends BaseController
                             }
                         }
                         unset($attr);
+                        $childData['childConfigs'] = $inputOptionConfig['childConfigs'];
+                        $grandChildren = $child->quizInputOptionCheckers;
                         break;
                     case 'QuizShape':
                         /**
@@ -642,6 +653,7 @@ class DefaultController extends BaseController
             'QuizInputGroup',
             'QuizInput',
             'QuizInputOption',
+            'QuizInputOptionChecker',
             'QuizInputImage',
             'QuizShape',
             'QuizObjectFilter',
@@ -693,6 +705,8 @@ class DefaultController extends BaseController
                         $parent->quizInputOptions,
                         $parent->quizInputImages
                     );
+                } else if ($parent instanceof QuizInputOption) {
+                    $oldChildren = $parent->quizInputOptionCheckers;
                 }
             }
             foreach ($data['items'] as $childData) {

@@ -33,6 +33,7 @@ class QuizBase extends MyActiveRecord
                 'quiz_character_medium_id',
                 'quiz_input_group_id',
                 'quiz_input_id',
+                'quiz_input_option_id',
                 'create_time',
                 'update_time',
                 'creator_id',

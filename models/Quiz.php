@@ -154,6 +154,20 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                      * @var $item3 QuizInputOption
                      */
                     $attrs3 = $item3->attributes;
+                    // Checkers
+                    $quizInputOptionCheckers = $item3->quizInputOptionCheckers;
+                    $_quizInputOptionCheckers = array_map(function ($item4) {
+                        /**
+                         * @var $item4 QuizInputOptionChecker
+                         */
+                        $attrs4 = $item4->attributes;
+                        $quizFn = $item4->quizFn;
+                        $_quizFn = $quizFn->attributes;
+                        $attrs4['quizFn'] = $_quizFn;
+                        return $attrs4;
+                    }, $quizInputOptionCheckers);
+                    $attrs3['quizInputOptionCheckers'] = $_quizInputOptionCheckers;
+                    // Results votes
                     $quizInputOptionToVotedResults = $item3->quizInputOptionToVotedResults;
                     $quiz_results_votes = [];
                     foreach ($quizInputOptionToVotedResults as $result_votes) {
