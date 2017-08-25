@@ -26,17 +26,18 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
             if ($newAttr['name'] === 'type') {
                 $newAttr['type'] = 'Select';
                 $newAttr['options'] = [
+                    // Limited answers types
                     'RadioGroup',
                     'CheckboxGroup',
-                    'Checkbox',
                     'Select',
+                    'WordGuessing',
+                    'ImageMapCheckpointOne',
+                    'ImageMapCheckpointMany',
+                    // Unlimited answers types:
                     'Text',
                     'Number',
-                    'Datetime',
                     'Date',
-                    'WordGuessing',
-                    'ImageMapCheckpointGroup',
-                    'ImageMapCheckpoint',
+                    'Datetime',
                 ];
             }
             $attr = $newAttr;
