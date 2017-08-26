@@ -42,6 +42,8 @@ class DefaultController extends BaseController
 //    public $layout = '@common/modules/quiz/views/layouts/main';
     public $layout = '@common/modules/quiz/views/layouts/antd';
 
+    private static $argsSeparator = "\n";
+
     /**
      * Renders the index view for the module
      * @return string
@@ -235,7 +237,7 @@ class DefaultController extends BaseController
                         }
                     } else if ($attr['name'] == 'arguments') {
                         $arr_value = json_decode($attr['value']);
-                        $attr['value'] = implode("\n```\n", $arr_value);
+                        $attr['value'] = implode(self::$argsSeparator, $arr_value);
 
 //                        if (!is_array($attr['value'])) {
 //                            $attr['value'] = json_decode($attr['value']);
@@ -489,7 +491,7 @@ class DefaultController extends BaseController
                     if ($attr['name'] == 'arguments') {
                         $arr_value = array_map(function ($item) {
                             return trim($item);
-                        }, explode("```", $attr['value']));
+                        }, explode(self::$argsSeparator, $attr['value']));
                         $result[$attr['name']] = json_encode($arr_value);
                     } else {
                         $result[$attr['name']] = $attr['value'];
@@ -1139,7 +1141,7 @@ class DefaultController extends BaseController
             'updateLink' => Url::to(['update', 'id' => $quiz->id]),
             'success' => empty($allErrors),
             'errors' => $allErrors,
-            'errorsDump' => VarDumper::dumpAsString($allErrors),
+            'errorsDumped' => VarDumper::dumpAsString($allErrors),
         ]);
 //    }
 //        echo json_encode([
