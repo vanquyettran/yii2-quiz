@@ -55,7 +55,11 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" create_quiz
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_required_column_to_quiz_input_table --fields="required:smallInteger(1)"
 
 
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" drop_quiz_duration_change_column_input_group_duration_change_column_time_speed_change_column_from_quiz_input_option_table --fields="quiz_duration_change:integer,input_group_duration_change:integer,time_speed_change:integer"
 
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_common_duration_change_column_group_duration_change_column_common_countdown_delay_change_column_group_countdown_delay_change_column_to_quiz_input_option_table --fields="common_duration_change:integer,group_duration_change:integer,common_countdown_delay_change:integer,group_countdown_delay_change:integer"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_countdown_delay_column_to_quiz_table --fields="countdown_delay:integer"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_countdown_delay_column_to_quiz_input_group_table --fields="countdown_delay:integer"
 
 
 
