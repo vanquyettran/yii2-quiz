@@ -61,7 +61,9 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_common_
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_countdown_delay_column_to_quiz_table --fields="countdown_delay:integer"
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_countdown_delay_column_to_quiz_input_group_table --fields="countdown_delay:integer"
 
-php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_incorrect_if_correct_choices_lt_column_incorrect_if_incorrect_choices_gt_column_to_quiz_input_table --fields="incorrect_if_correct_choices_lt:integer,incorrect_if_incorrect_choices_gt:integer"
+
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_correct_choices_min_column_incorrect_choices_max_column_to_quiz_input_table --fields="correct_choices_min:integer,incorrect_choices_max:integer"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_showed_stopwatches_column_to_quiz_table --fields="showed_stopwatches:string"
 
 
 
