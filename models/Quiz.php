@@ -165,6 +165,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         $_quizFn = $quizFn->attributes;
                         $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
                         $attrs4['quizFn'] = $_quizFn;
+                        var_dump($attrs4);die;
                         return $attrs4;
                     }, $quizInputOptionCheckers);
                     $attrs3['quizInputOptionCheckers'] = $_quizInputOptionCheckers;
