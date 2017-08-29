@@ -38,6 +38,10 @@ class QuizBase extends MyActiveRecord
                 'update_time',
                 'creator_id',
                 'updater_id',
+                'view_count',
+                'comment_count',
+                'like_count',
+                'share_count',
             ])) {
                 continue;
             }

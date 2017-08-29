@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="014b1699-505d-4aac-8a7a-67bf90d12184" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/DefaultController.php" afterPath="$PROJECT_DIR$/controllers/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Quiz.php" afterPath="$PROJECT_DIR$/models/Quiz.php" />
-    </list>
+    <list default="true" id="014b1699-505d-4aac-8a7a-67bf90d12184" name="Default" comment="" />
     <ignored path="quiz.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -77,8 +74,8 @@
       <file leaf-file-name="Quiz.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/Quiz.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="172" column="48" selection-start-line="172" selection-start-column="48" selection-end-line="172" selection-end-column="48" />
+            <state relative-caret-position="146">
+              <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -276,7 +273,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1503974425069</updated>
-      <workItem from="1503974426528" duration="4457000" />
+      <workItem from="1503974426528" duration="4460000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/vanquyettran/yii2-quiz&#10;&#10;# Conflicts:&#10;#&#9;create_migrations.cmd&#10;">
       <created>1503974667824</created>
@@ -324,7 +321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4457000" />
+    <option name="totallyTimeSpent" value="4460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="0" />
@@ -438,8 +435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Quiz.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="172" column="48" selection-start-line="172" selection-start-column="48" selection-end-line="172" selection-end-column="48" />
+        <state relative-caret-position="146">
+          <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding />
         </state>
       </provider>
