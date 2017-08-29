@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="014b1699-505d-4aac-8a7a-67bf90d12184" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baseModels/Quiz.php" afterPath="$PROJECT_DIR$/baseModels/Quiz.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Quiz.php" afterPath="$PROJECT_DIR$/models/Quiz.php" />
     </list>
     <ignored path="quiz.iws" />
@@ -77,8 +77,8 @@
       <file leaf-file-name="Quiz.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/Quiz.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="357" column="70" selection-start-line="357" selection-start-column="70" selection-end-line="357" selection-end-column="70" />
+            <state relative-caret-position="206">
+              <caret line="164" column="48" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -276,7 +276,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1503974425069</updated>
-      <workItem from="1503974426528" duration="3014000" />
+      <workItem from="1503974426528" duration="3852000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/vanquyettran/yii2-quiz&#10;&#10;# Conflicts:&#10;#&#9;create_migrations.cmd&#10;">
       <created>1503974667824</created>
@@ -306,11 +306,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503975233519</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="arguments">
+      <created>1504001588679</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1504001588679</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3014000" />
+    <option name="totallyTimeSpent" value="3852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="0" />
@@ -350,7 +357,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/vanquyettran/yii2-quiz&#10;&#10;# Conflicts:&#10;#&#9;create_migrations.cmd&#10;" />
     <MESSAGE value="correct choices min" />
     <MESSAGE value="showed_stopwatches" />
-    <option name="LAST_COMMIT_MESSAGE" value="showed_stopwatches" />
+    <MESSAGE value="arguments" />
+    <option name="LAST_COMMIT_MESSAGE" value="arguments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -423,8 +431,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Quiz.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="357" column="70" selection-start-line="357" selection-start-column="70" selection-end-line="357" selection-end-column="70" />
+        <state relative-caret-position="206">
+          <caret line="164" column="48" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
           <folding />
         </state>
       </provider>
