@@ -34,7 +34,7 @@ use Yii;
  * @property QuizInputToInputValidator[] $quizInputToInputValidators
  * @property QuizInputValidator[] $quizInputValidators
  */
-class QuizInput extends \yii\db\ActiveRecord
+class QuizInput extends QuizBase
 {
     /**
      * @inheritdoc
