@@ -12,7 +12,7 @@ class m170828_175239_add_showed_stopwatches_column_to_quiz_table extends Migrati
      */
     public function up()
     {
-        $this->addColumn('quiz', 'showed_stopwatches', $this->string());
+        $this->addColumn('quiz', 'showed_stopwatches', $this->string()->after('timeout_handling'));
     }
 
     /**
