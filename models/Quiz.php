@@ -163,6 +163,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         $attrs4 = $item4->attributes;
                         $quizFn = $item4->quizFn;
                         $_quizFn = $quizFn->attributes;
+                        $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
                         $attrs4['quizFn'] = $_quizFn;
                         return $attrs4;
                     }, $quizInputOptionCheckers);
@@ -213,6 +214,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                 $attrs2 = $item2->attributes;
                 $quizFn = $item2->quizFn;
                 $_quizFn = $quizFn->attributes;
+                $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
                 $attrs2['quizFn'] = $_quizFn;
                 return $attrs2;
             }, $quizSorters);
@@ -224,6 +226,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                 $attrs2 = $item2->attributes;
                 $quizFn = $item2->quizFn;
                 $_quizFn = $quizFn->attributes;
+                $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
                 $attrs2['quizFn'] = $_quizFn;
                 return $attrs2;
             }, $quizFilters);
@@ -242,6 +245,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                     $attrs3 = $item3->attributes;
                     $quizFn = $item3->quizFn;
                     $_quizFn = $quizFn->attributes;
+                    $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
                     $attrs3['quizFn'] = $_quizFn;
                     return $attrs3;
                 }, $quizCharacterMediumDataFilters);
@@ -254,6 +258,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                     $attrs3 = $item3->attributes;
                     $quizFn = $item3->quizFn;
                     $_quizFn = $quizFn->attributes;
+                    $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
                     $attrs3['quizFn'] = $_quizFn;
                     return $attrs3;
                 }, $quizCharacterMediumDataSorters);
@@ -283,6 +288,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             $attrs = $item->attributes;
             $quizFn = $item->quizFn;
             $_quizFn = $quizFn->attributes;
+            $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
             $attrs['quizFn'] = $_quizFn;
             return $attrs;
         }, $quizParams);
@@ -294,6 +300,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             $attrs = $item->attributes;
             $quizFn = $item->quizFn;
             $_quizFn = $quizFn->attributes;
+            $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
             $attrs['quizFn'] = $_quizFn;
             return $attrs;
         }, $quizObjectFilters);
@@ -348,6 +355,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             $attrs = $item->attributes;
             $quizFn = $item->quizFn;
             $_quizFn = $quizFn->attributes;
+            $_quizFn['arguments'] = json_decode($_quizFn['arguments']);
             $attrs['quizFn'] = $_quizFn;
             return $attrs;
         }, $quizInputValidators);
