@@ -43,6 +43,14 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         'GameOver',
                     ];
                     break;
+                case 'showed_stopwatches':
+                    $newAttr['type'] = 'MultipleSelect';
+                    $newAttr['options'] = [
+                        'total',
+                        'allQAs',
+                        'closedQAs',
+                    ];
+                    break;
             }
             $attr = $newAttr;
         }
