@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="014b1699-505d-4aac-8a7a-67bf90d12184" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/DefaultController.php" afterPath="$PROJECT_DIR$/controllers/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Quiz.php" afterPath="$PROJECT_DIR$/models/Quiz.php" />
     </list>
     <ignored path="quiz.iws" />
     <ignored path=".idea/workspace.xml" />

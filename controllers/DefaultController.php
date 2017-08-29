@@ -513,6 +513,7 @@ class DefaultController extends BaseController
         } else {
             $quiz = new Quiz();
         }
+        var_dump($attrs['showed_stopwatches']);die;
         $attrs['showed_stopwatches'] = json_encode($attrs['showed_stopwatches']);
         $quiz->setAttributes($attrs);
         $allErrors = [];
