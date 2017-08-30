@@ -14,6 +14,7 @@ use Yii;
  * @property integer $duration
  * @property integer $countdown_delay
  * @property string $timeout_handling
+ * @property string $showed_stopwatches
  * @property string $input_answers_showing
  * @property string $description
  * @property string $meta_title
@@ -70,7 +71,7 @@ class Quiz extends QuizBase
             [['name', 'slug', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id'], 'required'],
             [['introduction'], 'string'],
             [['duration', 'countdown_delay', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id', 'image_id', 'quiz_category_id', 'view_count', 'like_count', 'comment_count', 'share_count'], 'integer'],
-            [['name', 'slug', 'timeout_handling', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
+            [['name', 'slug', 'timeout_handling', 'showed_stopwatches', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
             [['description', 'meta_description', 'meta_keywords'], 'string', 'max' => 511],
             [['name'], 'unique'],
             [['slug'], 'unique'],
@@ -94,6 +95,7 @@ class Quiz extends QuizBase
             'duration' => 'Duration',
             'countdown_delay' => 'Countdown Delay',
             'timeout_handling' => 'Timeout Handling',
+            'showed_stopwatches' => 'Showed Stopwatches',
             'input_answers_showing' => 'Input Answers Showing',
             'description' => 'Description',
             'meta_title' => 'Meta Title',

@@ -43,6 +43,14 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         'GameOver',
                     ];
                     break;
+                case 'showed_stopwatches':
+                    $newAttr['type'] = 'MultipleSelect';
+                    $newAttr['options'] = [
+                        'total',
+                        'allQAs',
+                        'closedQAs',
+                    ];
+                    break;
             }
             $attr = $newAttr;
         }
@@ -79,7 +87,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             [['name', 'slug', 'publish_time'], 'required'],
             [['introduction'], 'string'],
             [['duration', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'image_id', 'quiz_category_id'], 'integer'],
-            [['name', 'slug', 'timeout_handling', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
+            [['name', 'slug', 'timeout_handling', 'showed_stopwatches', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
             [['description', 'meta_description', 'meta_keywords'], 'string', 'max' => 511],
             [['name'], 'unique'],
             [['slug'], 'unique'],
@@ -161,6 +169,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                          * @var $item4 QuizInputOptionChecker
                          */
                         $attrs4 = $item4->attributes;
+                        $attrs4['arguments'] = json_decode($item4->arguments);
                         $quizFn = $item4->quizFn;
                         $_quizFn = $quizFn->attributes;
                         $attrs4['quizFn'] = $_quizFn;
@@ -211,6 +220,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                  * @var $item2 QuizCharacterDataSorter
                  */
                 $attrs2 = $item2->attributes;
+                $attrs2['arguments'] = json_decode($item2->arguments);
                 $quizFn = $item2->quizFn;
                 $_quizFn = $quizFn->attributes;
                 $attrs2['quizFn'] = $_quizFn;
@@ -222,6 +232,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                  * @var $item2 QuizCharacterDataFilter
                  */
                 $attrs2 = $item2->attributes;
+                $attrs2['arguments'] = json_decode($item2->arguments);
                 $quizFn = $item2->quizFn;
                 $_quizFn = $quizFn->attributes;
                 $attrs2['quizFn'] = $_quizFn;
@@ -240,6 +251,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                      * @var $item3 QuizCharacterMediumDataFilter
                      */
                     $attrs3 = $item3->attributes;
+                    $attrs3['arguments'] = json_decode($item3->arguments);
                     $quizFn = $item3->quizFn;
                     $_quizFn = $quizFn->attributes;
                     $attrs3['quizFn'] = $_quizFn;
@@ -252,6 +264,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                      * @var $item3 QuizCharacterMediumDataSorter
                      */
                     $attrs3 = $item3->attributes;
+                    $attrs3['arguments'] = json_decode($item3->arguments);
                     $quizFn = $item3->quizFn;
                     $_quizFn = $quizFn->attributes;
                     $attrs3['quizFn'] = $_quizFn;
@@ -281,6 +294,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
              * @var $item QuizParam
              */
             $attrs = $item->attributes;
+            $attrs['arguments'] = json_decode($item->arguments);
             $quizFn = $item->quizFn;
             $_quizFn = $quizFn->attributes;
             $attrs['quizFn'] = $_quizFn;
@@ -292,6 +306,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
              * @var $item QuizObjectFilter;
              */
             $attrs = $item->attributes;
+            $attrs['arguments'] = json_decode($item->arguments);
             $quizFn = $item->quizFn;
             $_quizFn = $quizFn->attributes;
             $attrs['quizFn'] = $_quizFn;
@@ -346,6 +361,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
              * @var $item QuizInputValidator
              */
             $attrs = $item->attributes;
+            $attrs['arguments'] = json_decode($item->arguments);
             $quizFn = $item->quizFn;
             $_quizFn = $quizFn->attributes;
             $attrs['quizFn'] = $_quizFn;

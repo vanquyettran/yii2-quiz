@@ -19,6 +19,8 @@ use Yii;
  * @property integer $shuffle_images
  * @property integer $auto_next
  * @property integer $retry_if_incorrect
+ * @property integer $correct_choices_min
+ * @property integer $incorrect_choices_max
  * @property integer $sort_order
  * @property integer $options_per_row
  * @property integer $options_per_small_row
@@ -49,7 +51,7 @@ class QuizInput extends QuizBase
     {
         return [
             [['name', 'var_name', 'type', 'quiz_input_group_id'], 'required'],
-            [['is_open_question', 'required', 'shuffle_options', 'shuffle_images', 'auto_next', 'retry_if_incorrect', 'sort_order', 'options_per_row', 'options_per_small_row', 'images_per_row', 'images_per_small_row', 'quiz_input_group_id'], 'integer'],
+            [['is_open_question', 'required', 'shuffle_options', 'shuffle_images', 'auto_next', 'retry_if_incorrect', 'correct_choices_min', 'incorrect_choices_max', 'sort_order', 'options_per_row', 'options_per_small_row', 'images_per_row', 'images_per_small_row', 'quiz_input_group_id'], 'integer'],
             [['question', 'answer_explanation'], 'string'],
             [['name', 'var_name', 'type'], 'string', 'max' => 255],
             [['quiz_input_group_id'], 'exist', 'skipOnError' => true, 'targetClass' => QuizInputGroup::className(), 'targetAttribute' => ['quiz_input_group_id' => 'id'], 'except' => 'test'],
@@ -74,6 +76,8 @@ class QuizInput extends QuizBase
             'shuffle_images' => 'Shuffle Images',
             'auto_next' => 'Auto Next',
             'retry_if_incorrect' => 'Retry If Incorrect',
+            'correct_choices_min' => 'Correct Choices Min',
+            'incorrect_choices_max' => 'Incorrect Choices Max',
             'sort_order' => 'Sort Order',
             'options_per_row' => 'Options Per Row',
             'options_per_small_row' => 'Options Per Small Row',

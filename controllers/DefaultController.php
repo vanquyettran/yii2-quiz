@@ -158,7 +158,11 @@ class DefaultController extends BaseController
 
         $attrs = [];
         foreach ($quizConfig['attrs'] as $attr) {
-            $attr['value'] = $quiz->getAttribute($attr['name']);
+            if ($attr['name'] == 'showed_stopwatches') {
+                $attr['value'] = json_decode($quiz->getAttribute($attr['name']));
+            } else {
+                $attr['value'] = $quiz->getAttribute($attr['name']);
+            }
             $attr['errorMsg'] = '';
             $attrs[] = $attr;
         }
@@ -509,6 +513,7 @@ class DefaultController extends BaseController
         } else {
             $quiz = new Quiz();
         }
+        $attrs['showed_stopwatches'] = json_encode($attrs['showed_stopwatches']);
         $quiz->setAttributes($attrs);
         $allErrors = [];
         if (!$quiz->validate()) {
