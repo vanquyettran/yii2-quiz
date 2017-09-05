@@ -84,7 +84,11 @@ class QuizBase extends MyActiveRecord
                         $type = 'Text';
                         break;
                     case Schema::TYPE_TEXT:
-                        $type = 'RichText';
+                        if (\Yii::$app->request->get('rich_text', 0) == 1) {
+                            $type = 'RichText';
+                        } else {
+                            $type = 'TextArea';
+                        }
                         break;
                     case Schema::TYPE_INTEGER:
                     case Schema::TYPE_FLOAT:
