@@ -16,7 +16,8 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             $newAttr = $attr;
             switch ($newAttr['name']) {
                 case 'input_answers_showing':
-                    $newAttr['type'] = 'Select';
+//                    $newAttr['type'] = 'Select';
+                    $newAttr['type'] = 'RadioGroup';
                     $newAttr['options'] = [
 //                        [
 //                            'value' => 'AfterInputGroup',
