@@ -35,6 +35,9 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
                         'GameOver',
                     ];
                     break;
+                case 'name':
+                    $newAttr['defaultValue'] = 'Input Group @i{QuizInputGroup}';
+                    break;
             }
             $attr = $newAttr;
         }
