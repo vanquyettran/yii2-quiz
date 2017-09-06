@@ -44,7 +44,8 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                     ];
                     break;
                 case 'showed_stopwatches':
-                    $newAttr['type'] = 'MultipleSelect';
+//                    $newAttr['type'] = 'MultipleSelect';
+                    $newAttr['type'] = 'CheckboxGroup';
                     $newAttr['options'] = [
                         'total',
                         'allQAs',
