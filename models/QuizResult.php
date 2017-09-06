@@ -28,7 +28,7 @@ class QuizResult extends \common\modules\quiz\baseModels\QuizResult
         }
 
         $modelConfig['attrs'][] = [
-            'type' => 'MultipleSelect',
+            'type' => 'CheckboxGroup',
             'name' => 'quiz_shape_ids',
             'label' => 'Quiz shapes',
             'value' => [],
@@ -38,7 +38,7 @@ class QuizResult extends \common\modules\quiz\baseModels\QuizResult
         ];
 
         $modelConfig['attrs'][] = [
-            'type' => 'MultipleSelect',
+            'type' => 'CheckboxGroup',
             'name' => 'quiz_character_medium_ids',
             'label' => 'Quiz character media',
             'value' => [],

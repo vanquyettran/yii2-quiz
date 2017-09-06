@@ -12,7 +12,7 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
         $modelConfig = parent::modelConfig();
 
         $modelConfig['attrs'][] = [
-            'type' => 'MultipleSelect',
+            'type' => 'CheckboxGroup',
             'name' => 'quiz_input_validator_ids',
             'label' => 'Quiz input validators',
             'value' => [],

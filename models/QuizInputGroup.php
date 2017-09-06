@@ -14,7 +14,7 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
             $newAttr = $attr;
             switch ($newAttr['name']) {
                 case 'inputs_appearance':
-                    $newAttr['type'] = 'Select';
+                    $newAttr['type'] = 'RadioGroup';
                     $newAttr['options'] = [
                         [
                             'value' => 'Simultaneously',
@@ -27,7 +27,7 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
                     ];
                     break;
                 case 'timeout_handling':
-                    $newAttr['type'] = 'Select';
+                    $newAttr['type'] = 'RadioGroup';
                     $newAttr['options'] = [
                         'IgnoreInputGroup',
                         'ShowResult',

@@ -17,7 +17,7 @@ class QuizShape extends \common\modules\quiz\baseModels\QuizShape
         }
 
         $modelConfig['attrs'][] = [
-            'type' => 'MultipleSelect',
+            'type' => 'CheckboxGroup',
             'name' => 'quiz_style_ids',
             'label' => 'Quiz styles',
             'value' => [],
