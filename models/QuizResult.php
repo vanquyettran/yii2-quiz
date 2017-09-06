@@ -23,6 +23,7 @@ class QuizResult extends \common\modules\quiz\baseModels\QuizResult
                     'Happy',
                     'Default',
                 ];
+                $newAttr['defaultValue'] = 'Default';
             }
             $attr = $newAttr;
         }

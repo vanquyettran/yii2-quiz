@@ -27,6 +27,7 @@ class QuizAlert extends \common\modules\quiz\baseModels\QuizAlert
                     'Primary',
                     'Default',
                 ];
+                $newAttr['defaultValue'] = 'Default';
             }
             $attr = $newAttr;
         }

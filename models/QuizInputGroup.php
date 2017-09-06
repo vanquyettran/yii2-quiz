@@ -25,9 +25,10 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
                             'label' => 'Lần lượt',
                         ]
                     ];
+                    $newAttr['defaultValue'] = 'InTurn';
                     break;
                 case 'timeout_handling':
-                    $newAttr['type'] = 'RadioGroup';
+                    $newAttr['type'] = 'Select';
                     $newAttr['options'] = [
                         'IgnoreInputGroup',
                         'ShowResult',

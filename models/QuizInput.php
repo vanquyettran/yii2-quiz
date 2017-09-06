@@ -47,6 +47,7 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
                     'Date',
                     'Datetime',
                 ];
+                $newAttr['defaultValue'] = 'RadioGroup';
             }
             $attr = $newAttr;
         }
