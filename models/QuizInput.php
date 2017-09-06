@@ -23,31 +23,39 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
 
         foreach ($modelConfig['attrs'] as &$attr) {
             $newAttr = $attr;
-            if ($newAttr['name'] === 'type') {
-                $newAttr['type'] = 'Select';
-                $newAttr['options'] = [
-                    // Limited answers types
-                    [
-                        'value' => 'Limited-answers Types:',
-                        'disabled' => true,
-                    ],
-                    'RadioGroup',
-                    'CheckboxGroup',
-                    'Select',
-                    'WordGuessing',
-                    'ImageMapCheckpointOne',
-                    'ImageMapCheckpointMany',
-                    // Unlimited answers types:
-                    [
-                        'value' => 'Unlimited-answers Types:',
-                        'disabled' => true,
-                    ],
-                    'Text',
-                    'Number',
-                    'Date',
-                    'Datetime',
-                ];
-                $newAttr['defaultValue'] = 'RadioGroup';
+            switch ($newAttr['name']) {
+                case 'type':
+                    $newAttr['type'] = 'Select';
+                    $newAttr['options'] = [
+                        // Limited answers types
+                        [
+                            'value' => 'Limited-answers Types:',
+                            'disabled' => true,
+                        ],
+                        'RadioGroup',
+                        'CheckboxGroup',
+                        'Select',
+                        'WordGuessing',
+                        'ImageMapCheckpointOne',
+                        'ImageMapCheckpointMany',
+                        // Unlimited answers types:
+                        [
+                            'value' => 'Unlimited-answers Types:',
+                            'disabled' => true,
+                        ],
+                        'Text',
+                        'Number',
+                        'Date',
+                        'Datetime',
+                    ];
+                    $newAttr['defaultValue'] = 'RadioGroup';
+                    break;
+                case 'name':
+                    $newAttr['defaultValue'] = 'Input @i{QuizInput}';
+                    break;
+                case 'var_name':
+                    $newAttr['defaultValue'] = 'input_@i{QuizInput}';
+                    break;
             }
             $attr = $newAttr;
         }
