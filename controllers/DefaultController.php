@@ -163,7 +163,7 @@ class DefaultController extends BaseController
             } else {
                 $attr['value'] = $quiz->getAttribute($attr['name']);
             }
-            $attr['errorMsg'] = '';
+//            $attr['errorMsg'] = '';
             $attrs[] = $attr;
         }
 
@@ -224,7 +224,7 @@ class DefaultController extends BaseController
                 $modelConfig = $class::modelConfig();
                 foreach ($modelConfig['attrs'] as $attr) {
                     $attr['value'] = $child->getAttribute($attr['name']);
-                    $attr['errorMsg'] = '';
+//                    $attr['errorMsg'] = '';
                     if ($attr['name'] == 'image_id') {
                         $image = Image::findOne($attr['value']);
                         if ($image) {
@@ -488,6 +488,7 @@ class DefaultController extends BaseController
 
     public function actionAjaxSave()
     {
+        $is_new_record = true;
         $parseAttrs = function ($attrs) {
             $result = [];
             foreach ($attrs as $attr) {
@@ -510,6 +511,7 @@ class DefaultController extends BaseController
         $attrs = $parseAttrs($state['attrs']);
         if ($attrs['id']) {
             $quiz = Quiz::findOne($attrs['id']);
+            $is_new_record = false;
         } else {
             $quiz = new Quiz();
         }
@@ -1143,7 +1145,7 @@ class DefaultController extends BaseController
         }
         echo json_encode([
             'state' => $state,
-            'updateLink' => Url::to(['update', 'id' => $quiz->id]),
+            'updateUrl' => $is_new_record ? Url::to(['update', 'id' => $quiz->id]) : null,
             'success' => empty($allErrors),
             'errors' => $allErrors,
             'errorsDumped' => VarDumper::dumpAsString($allErrors),
