@@ -486,7 +486,7 @@ class DefaultController extends BaseController
 
     public function actionAjaxSave()
     {
-        $is_new_record = true;
+        $reload = false;
         $parseAttrs = function ($attrs) {
             $result = [];
             foreach ($attrs as $attr) {
@@ -509,12 +509,15 @@ class DefaultController extends BaseController
         $attrs = $parseAttrs($state['attrs']);
         if ($attrs['id']) {
             $quiz = Quiz::findOne($attrs['id']);
-            $is_new_record = false;
         } else {
             $quiz = new Quiz();
+            $reload = true;
         }
         $attrs['showed_stopwatches'] = json_encode($attrs['showed_stopwatches'] ? $attrs['showed_stopwatches'] : []);
         $quiz->setAttributes($attrs);
+        if ($quiz->getOldAttribute('slug') != $quiz->slug) {
+            $reload = true;
+        }
         $allErrors = [];
         if (!$quiz->validate()) {
             $allErrors['Quiz#'] = $quiz->errors;
@@ -1143,7 +1146,7 @@ class DefaultController extends BaseController
         }
         $json_res = json_encode([
             'state' => $state,
-            'updateUrl' => $is_new_record ? Url::to(['update', 'id' => $quiz->id]) : null,
+            'reloadUrl' => $reload ? Url::to(['update', 'id' => $quiz->id]) : null,
             'success' => empty($allErrors),
             'errors' => $allErrors,
             'errorsDumped' => VarDumper::dumpAsString($allErrors),
