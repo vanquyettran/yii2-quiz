@@ -45,8 +45,8 @@ class QuizBase extends MyActiveRecord
             ])) {
                 continue;
             }
-
             $type = 'text';
+            $placeholder = '';
             $options = [];
             if (in_array($column->name, [
                 'id',
@@ -55,15 +55,18 @@ class QuizBase extends MyActiveRecord
             ])) {
 //                $type = 'Hidden';
                 $type = 'None';
-            } else if ($column->name === 'arguments') {
+            } else if ($column->name == 'countdown_delay') {
+                $placeholder = '= 100 by default, means 100% of second <=> 1 second';
+            } else if ($column->name == 'arguments') {
                 $type = 'TextArea';
-            } else if ($column->name === 'image_id') {
+                $placeholder = "\"Example\"\n123\n@r.inputs.your_name.value";
+            } else if ($column->name == 'image_id') {
                 $type = 'ImageSelect';
-            } else if (substr($column->name, -5) === '_time') {
+            } else if (substr($column->name, -5) == '_time') {
                 $type = 'Datetime';
-            } else if (substr($column->name, -3) === '_id') {
+            } else if (substr($column->name, -3) == '_id') {
                 $type = 'Select';
-                if (substr($column->name, -6) === '_fn_id') {
+                if (substr($column->name, -6) == '_fn_id') {
                     $quizFns = self::shortClassName() == 'QuizParam'
                         ? QuizFn::find()->all()
                         : QuizFn::find()->where(['or', ['async' => 0], ['async' => null]])->all();
@@ -104,7 +107,7 @@ class QuizBase extends MyActiveRecord
                 'type' => $type,
                 'name' => $column->name,
                 'label' => Inflector::humanize($column->name),
-                'placeholder' => '',
+                'placeholder' => $placeholder,
                 'readOnly' => false,
                 'value' => null,
                 'defaultValue' => null,

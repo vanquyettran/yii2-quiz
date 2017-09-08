@@ -70,9 +70,6 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                 case 'dofollow':
                     $newAttr['defaultValue'] = 1;
                     break;
-                case 'countdown_delay':
-                    $newAttr['placeholder'] = '= 100 by default, means 100% of second <=> 1 second';
-                    break;
                 case 'slug':
                     $newAttr['readOnly'] = true;
                     $newAttr['placeholder'] = 'Auto generated from `name`';
