@@ -1143,7 +1143,7 @@ class DefaultController extends BaseController
         }
         echo json_encode([
             'state' => $state,
-            'updateLink' => Url::to(['update', 'id' => $quiz->id]),
+            'updateUrl' => $quiz->isNewRecord ? Url::to(['update', 'id' => $quiz->id]) : null,
             'success' => empty($allErrors),
             'errors' => $allErrors,
             'errorsDumped' => VarDumper::dumpAsString($allErrors),

@@ -38,6 +38,9 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
                 case 'name':
                     $newAttr['defaultValue'] = 'Input Group @i{QuizInputGroup}';
                     break;
+                case 'countdown_delay':
+                    $newAttr['placeholder'] = '= 100 by default, means 100% of second <=> 1 second';
+                    break;
             }
             $attr = $newAttr;
         }

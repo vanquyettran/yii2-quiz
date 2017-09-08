@@ -104,7 +104,10 @@ class QuizBase extends MyActiveRecord
                 'type' => $type,
                 'name' => $column->name,
                 'label' => Inflector::humanize($column->name),
-                'value' => '',
+                'placeholder' => '',
+                'readonly' => false,
+                'value' => null,
+                'defaultValue' => null,
                 'errorMsg' => '',
                 'options' => $options,
                 'rules' => [

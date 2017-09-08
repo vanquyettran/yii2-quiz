@@ -24,11 +24,10 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             switch ($newAttr['name']) {
                 case 'publish_time':
                     $newAttr['name'] = 'publish_time_timestamp';
-                    $newAttr['type'] = 'DateTime';
+                    $newAttr['type'] = 'Datetime';
                     $newAttr['defaultValue'] = date(self::TIMESTAMP_FORMAT, self::getDefaultPublishTime());
                     break;
                 case 'input_answers_showing':
-//                    $newAttr['type'] = 'Select';
                     $newAttr['type'] = 'RadioGroup';
                     $newAttr['options'] = [
 //                        [
@@ -64,6 +63,18 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         'allQAs',
                         'closedQAs',
                     ];
+                    break;
+                case 'active':
+                case 'visible':
+                case 'doindex':
+                case 'dofollow':
+                    $newAttr['defaultValue'] = 1;
+                    break;
+                case 'countdown_delay':
+                    $newAttr['placeholder'] = '= 100 by default, means 100% of second <=> 1 second';
+                    break;
+                case 'slug':
+                    $newAttr['readonly'] = true;
                     break;
 
             }
