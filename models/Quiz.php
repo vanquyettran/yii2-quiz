@@ -118,7 +118,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
     public function rules()
     {
         return [
-            [['name', 'publish_time'], 'required'],
+            [['name'], 'required'],
             [['introduction'], 'string'],
             [['duration', 'countdown_delay', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'publish_time', 'image_id', 'quiz_category_id', 'view_count', 'like_count', 'comment_count', 'share_count'], 'integer'],
             [['name', 'slug', 'timeout_handling', 'showed_stopwatches', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
