@@ -13,6 +13,17 @@ class QuizShape extends \common\modules\quiz\baseModels\QuizShape
         foreach ($modelConfig['attrs'] as &$attr) {
             if ($attr['name'] == 'text') {
                 $attr['type'] = 'TextArea';
+                $attr['placeholder'] =
+                    "You can embed data to text:\n"
+                    . "@r\n"
+                    . "    {{@r.params.var_name}} will be replaced by value of param `var_name`\n"
+                    . "    {{@r.inputs.var_name.value}} will be replaced by value of input `var_name`\n"
+                    . "    {{@r.characters.var_name.name}} will be replaced by name of character `var_name`\n"
+                    . "@s\n"
+                    . "    {{@s.score}} will be replaced by current score of all inputs\n"
+                    . "@t\n"
+                    . "    {{@t.total}}, {{@t.allQAs}} and {{@t.closedQAs}} will be replaced by total, all questions answering and closed questions answering elapsed time\n"
+                ;
             }
         }
 
