@@ -856,7 +856,7 @@ class DefaultController extends BaseController
                 $quiz->id = null;
             }
             if ($quiz->save()) {
-                if ($quiz->getOldAttribute('slug') != $quiz->slug) {
+                if ($old_slug != $quiz->slug) {
                     $reload = true;
                 }
 //                $addJunction(array_merge($state, ['type' => 'Quiz', 'id' => '__Quiz#' . $quiz->id]), $quiz, [
