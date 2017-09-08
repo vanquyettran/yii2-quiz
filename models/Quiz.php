@@ -74,7 +74,8 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                     $newAttr['placeholder'] = '= 100 by default, means 100% of second <=> 1 second';
                     break;
                 case 'slug':
-                    $newAttr['readonly'] = true;
+                    $newAttr['readOnly'] = true;
+                    $newAttr['placeholder'] = 'Auto generated from `name`';
                     break;
 
             }
