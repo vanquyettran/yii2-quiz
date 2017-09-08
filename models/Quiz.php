@@ -20,16 +20,15 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
         $modelConfig = parent::modelConfig();
 
         foreach ($modelConfig['attrs'] as &$attr) {
-            $newAttr = $attr;
-            switch ($newAttr['name']) {
+            switch ($attr['name']) {
                 case 'publish_time':
-                    $newAttr['name'] = 'publish_time_timestamp';
-                    $newAttr['type'] = 'Datetime';
-                    $newAttr['defaultValue'] = date(self::TIMESTAMP_FORMAT, self::getDefaultPublishTime());
+                    $attr['name'] = 'publish_time_timestamp';
+                    $attr['type'] = 'Datetime';
+                    $attr['defaultValue'] = date(self::TIMESTAMP_FORMAT, self::getDefaultPublishTime());
                     break;
                 case 'input_answers_showing':
-                    $newAttr['type'] = 'RadioGroup';
-                    $newAttr['options'] = [
+                    $attr['type'] = 'RadioGroup';
+                    $attr['options'] = [
 //                        [
 //                            'value' => 'AfterInputGroup',
 //                            'label' => 'Sau mỗi nhóm câu hỏi',
@@ -49,16 +48,16 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                     ];
                     break;
                 case 'timeout_handling':
-                    $newAttr['type'] = 'RadioGroup';
-                    $newAttr['options'] = [
+                    $attr['type'] = 'RadioGroup';
+                    $attr['options'] = [
                         'ShowQuizResult',
                         'EndQuiz',
                     ];
                     break;
                 case 'showed_stopwatches':
-//                    $newAttr['type'] = 'MultipleSelect';
-                    $newAttr['type'] = 'CheckboxGroup';
-                    $newAttr['options'] = [
+//                    $attr['type'] = 'MultipleSelect';
+                    $attr['type'] = 'CheckboxGroup';
+                    $attr['options'] = [
                         'total',
                         'allQAs',
                         'closedQAs',
@@ -68,15 +67,18 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                 case 'visible':
                 case 'doindex':
                 case 'dofollow':
-                    $newAttr['defaultValue'] = 1;
+                    $attr['defaultValue'] = 1;
                     break;
                 case 'slug':
-                    $newAttr['readOnly'] = true;
-                    $newAttr['placeholder'] = 'Auto generated from `name`';
+                    $attr['readOnly'] = true;
+                    $attr['placeholder'] = 'Auto generated from `name`';
                     break;
-
+                case 'description':
+                case 'meta_description':
+                case 'meta_keywords':
+                    $attr['type'] = 'TextArea';
+                    break;
             }
-            $attr = $newAttr;
         }
 
         return $modelConfig;
