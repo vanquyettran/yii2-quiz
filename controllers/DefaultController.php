@@ -1149,8 +1149,6 @@ class DefaultController extends BaseController
             }
         }
 
-        var_dump($reload);die;
-
         $json_res = json_encode([
             'state' => $state,
             'reloadUrl' => $reload ? Url::to(['update', 'id' => $quiz->id]) : null,
