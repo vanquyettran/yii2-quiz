@@ -81,6 +81,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
         return [
             [
                 'class' => MySluggableBehavior::className(),
+                'attribute' => 'name',
                 'slugAttribute' => 'slug',
                 'ensureUnique' => true,
                 'immutable' => false
