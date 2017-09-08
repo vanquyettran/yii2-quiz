@@ -118,6 +118,7 @@ class QuizBase extends MyActiveRecord
                 'readOnly' => false,
                 'value' => '',
                 'defaultValue' => '',
+                'errorMessage' => '',
                 'options' => $options,
                 'rules' => [
                     'required' => !$column->allowNull,
