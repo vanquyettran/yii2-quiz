@@ -856,8 +856,8 @@ class DefaultController extends BaseController
                 $quiz->id = null;
             }
             if ($quiz->save()) {
-                var_dump($quiz->slug);
-                var_dump($old_slug);die;
+//                var_dump($quiz->slug);
+//                var_dump($old_slug);die;
                 if ($old_slug != $quiz->slug) {
                     $reload = true;
                 }
