@@ -32,7 +32,7 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
                     $newAttr['options'] = [
                         'ShowQuizResult',
                         'EndQuiz',
-                        'EndCurrentInputGroup',
+                        'EndCurrentQuizInputGroup',
                     ];
                     break;
                 case 'name':
