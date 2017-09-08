@@ -55,7 +55,14 @@ class QuizBase extends MyActiveRecord
             ])) {
 //                $type = 'Hidden';
                 $type = 'None';
+            } else if ($column->name == 'name') {
+                $type = 'Text';
+                $placeholder = 'My Name';
+            } else if ($column->name == 'var_name') {
+                $type = 'Text';
+                $placeholder = 'my_name';
             } else if ($column->name == 'countdown_delay') {
+                $type = 'Number';
                 $placeholder = '= 100 by default, means 100% of second <=> 1 second';
             } else if ($column->name == 'arguments') {
                 $type = 'TextArea';
