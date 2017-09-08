@@ -75,7 +75,6 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                     break;
                 case 'description':
                 case 'meta_description':
-                case 'meta_keywords':
                     $attr['type'] = 'TextArea';
                     break;
             }
