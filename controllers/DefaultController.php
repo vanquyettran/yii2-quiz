@@ -507,15 +507,17 @@ class DefaultController extends BaseController
         };
         $state = json_decode(\Yii::$app->request->post('state'), true);
         $attrs = $parseAttrs($state['attrs']);
+        $old_slug = null;
         if ($attrs['id']) {
             $quiz = Quiz::findOne($attrs['id']);
+            $old_slug = $quiz->slug;
         } else {
             $quiz = new Quiz();
             $reload = true;
         }
         $attrs['showed_stopwatches'] = json_encode($attrs['showed_stopwatches'] ? $attrs['showed_stopwatches'] : []);
         $quiz->setAttributes($attrs);
-        if ($quiz->getOldAttribute('slug') != $quiz->slug) {
+        if ($old_slug && $old_slug != $quiz->slug) {
             $reload = true;
         }
         $allErrors = [];
