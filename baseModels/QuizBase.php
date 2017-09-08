@@ -66,7 +66,7 @@ class QuizBase extends MyActiveRecord
                 $placeholder = '= 100 by default, means 100% of second <=> 1 second';
             } else if ($column->name == 'arguments') {
                 $type = 'TextArea';
-                $placeholder = "\"Example\"\n123\n@r.inputs.your_name.value";
+                $placeholder = "\"Example\"\n123456789\n@r.inputs.your_name.value";
             } else if ($column->name == 'image_id') {
                 $type = 'ImageSelect';
             } else if (substr($column->name, -5) == '_time') {
