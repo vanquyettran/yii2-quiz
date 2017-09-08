@@ -56,6 +56,11 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
                 case 'var_name':
                     $newAttr['defaultValue'] = 'input_@i{QuizInput}';
                     break;
+                case 'required':
+                case 'auto_next':
+                    $newAttr['defaultValue'] = 1;
+                    break;
+
             }
             $attr = $newAttr;
         }

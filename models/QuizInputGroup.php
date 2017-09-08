@@ -28,7 +28,7 @@ class QuizInputGroup extends \common\modules\quiz\baseModels\QuizInputGroup
 //                    $newAttr['defaultValue'] = 'InTurn';
 //                    break;
                 case 'timeout_handling':
-                    $newAttr['type'] = 'Select';
+                    $newAttr['type'] = 'RadioGroup';
                     $newAttr['options'] = [
                         'ShowQuizResult',
                         'EndQuiz',
