@@ -117,7 +117,7 @@ class QuizBase extends MyActiveRecord
                 'placeholder' => $placeholder,
                 'readOnly' => false,
                 'value' => '',
-                'defaultValue' => '',
+                'defaultValue' => '', 
                 'errorMsg' => '',
                 'options' => $options,
                 'rules' => [
