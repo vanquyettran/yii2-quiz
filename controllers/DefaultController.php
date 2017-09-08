@@ -163,7 +163,6 @@ class DefaultController extends BaseController
             } else {
                 $attr['value'] = $quiz->getAttribute($attr['name']);
             }
-//            $attr['errorMsg'] = '';
             $attrs[] = $attr;
         }
 
@@ -224,7 +223,6 @@ class DefaultController extends BaseController
                 $modelConfig = $class::modelConfig();
                 foreach ($modelConfig['attrs'] as $attr) {
                     $attr['value'] = $child->getAttribute($attr['name']);
-//                    $attr['errorMsg'] = '';
                     if ($attr['name'] == 'image_id') {
                         $image = Image::findOne($attr['value']);
                         if ($image) {
@@ -523,7 +521,7 @@ class DefaultController extends BaseController
             foreach ($quiz->errors as $attrName => $errors) {
                 foreach ($state['attrs'] as &$attr) {
                     if ($attrName == $attr['name']) {
-                        $attr['errorMsg'] = implode(", ", $errors);
+                        $attr['errorMessage'] = implode(", ", $errors);
                     }
                 }
             }
@@ -778,7 +776,7 @@ class DefaultController extends BaseController
                         foreach ($model->errors as $attrName => $errors) {
                             foreach ($childData['attrs'] as &$attr) {
                                 if ($attrName == $attr['name']) {
-                                    $attr['errorMsg'] = implode(", ", $errors);
+                                    $attr['errorMessage'] = implode(", ", $errors);
                                 }
                             }
                         }
