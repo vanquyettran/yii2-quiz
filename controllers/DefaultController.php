@@ -524,6 +524,8 @@ class DefaultController extends BaseController
                 foreach ($state['attrs'] as &$attr) {
                     if ($attrName == $attr['name']) {
                         $attr['errorMsg'] = implode(", ", $errors);
+                        var_dump('quiz attr', $attr);
+                        die;
                     }
                 }
             }
