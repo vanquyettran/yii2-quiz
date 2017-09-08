@@ -58,6 +58,7 @@ class QuizInput extends \common\modules\quiz\baseModels\QuizInput
                     break;
                 case 'required':
                 case 'auto_next':
+                case 'shuffle_options':
                     $newAttr['defaultValue'] = 1;
                     break;
 
