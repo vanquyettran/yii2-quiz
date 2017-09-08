@@ -521,7 +521,7 @@ class DefaultController extends BaseController
             foreach ($quiz->errors as $attrName => $errors) {
                 foreach ($state['attrs'] as &$attr) {
                     if ($attrName == $attr['name']) {
-                        $attr['errorMessage'] = implode(", ", $errors);
+                        $attr['errorMsg'] = implode(", ", $errors);
                     }
                 }
             }
@@ -776,7 +776,7 @@ class DefaultController extends BaseController
                         foreach ($model->errors as $attrName => $errors) {
                             foreach ($childData['attrs'] as &$attr) {
                                 if ($attrName == $attr['name']) {
-                                    $attr['errorMessage'] = implode(", ", $errors);
+                                    $attr['errorMsg'] = implode(", ", $errors);
                                 }
                             }
                         }
