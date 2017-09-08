@@ -524,8 +524,6 @@ class DefaultController extends BaseController
                 foreach ($state['attrs'] as &$attr) {
                     if ($attrName == $attr['name']) {
                         $attr['errorMsg'] = implode(", ", $errors);
-                        var_dump('quiz attr', $attr);
-                        die;
                     }
                 }
             }
@@ -1145,6 +1143,8 @@ class DefaultController extends BaseController
                 }
             }
         }
+        var_dump('quiz attr', $state);
+        die;
         echo json_encode([
             'state' => $state,
             'updateUrl' => $is_new_record ? Url::to(['update', 'id' => $quiz->id]) : null,
