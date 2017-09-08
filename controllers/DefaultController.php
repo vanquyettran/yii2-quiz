@@ -488,7 +488,6 @@ class DefaultController extends BaseController
 
     public function actionAjaxSave()
     {
-        $is_new_record = true;
         $parseAttrs = function ($attrs) {
             $result = [];
             foreach ($attrs as $attr) {
@@ -511,7 +510,6 @@ class DefaultController extends BaseController
         $attrs = $parseAttrs($state['attrs']);
         if ($attrs['id']) {
             $quiz = Quiz::findOne($attrs['id']);
-            $is_new_record = false;
         } else {
             $quiz = new Quiz();
         }
@@ -1145,7 +1143,7 @@ class DefaultController extends BaseController
         }
         echo json_encode([
             'state' => $state,
-            'updateUrl' => $is_new_record ? Url::to(['update', 'id' => $quiz->id]) : null,
+            'updateLink' => Url::to(['update', 'id' => $quiz->id]),
             'success' => empty($allErrors),
             'errors' => $allErrors,
             'errorsDumped' => VarDumper::dumpAsString($allErrors),
