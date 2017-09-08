@@ -1143,8 +1143,7 @@ class DefaultController extends BaseController
                 }
             }
         }
-        var_dump('quiz attr', $state);
-        die;
+        echo "//"; var_dump('quiz attr', $state);
         echo json_encode([
             'state' => $state,
             'updateUrl' => $is_new_record ? Url::to(['update', 'id' => $quiz->id]) : null,
