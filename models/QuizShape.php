@@ -19,10 +19,10 @@ class QuizShape extends \common\modules\quiz\baseModels\QuizShape
                     . "    {{@r.params.var_name}} will be replaced by value of param `var_name`\n"
                     . "    {{@r.inputs.var_name.value}} will be replaced by value of input `var_name`\n"
                     . "    {{@r.characters.var_name.name}} will be replaced by name of character `var_name`\n"
-                    . "@s\n"
-                    . "    {{@s.score}} will be replaced by current score of all inputs\n"
-                    . "@t\n"
-                    . "    {{@t.total}}, {{@t.allQAs}} and {{@t.closedQAs}} will be replaced by total, all questions answering and closed questions answering elapsed time\n"
+                    . "@statistics\n"
+                    . "    {{@statistics.score}} will be replaced by current score of all inputs\n"
+                    . "@elapsedTime\n"
+                    . "    {{@elapsedTime.total}}, {{@elapsedTime.allQAs}} and {{@elapsedTime.closedQAs}} will be replaced by total, all questions answering and closed questions answering elapsed time\n"
                 ;
             }
         }
