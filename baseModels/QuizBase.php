@@ -83,7 +83,8 @@ class QuizBase extends MyActiveRecord
                          */
                         $options[] = [
                             'label' => $fn->name,
-                            'value' => $fn->id
+                            'value' => $fn->id,
+                            'extraInfo' => $fn->guideline
                         ];
                     }
                 }
