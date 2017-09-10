@@ -24,10 +24,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+//            'id',
+            [
+                'attribute' => 'image_id',
+                'format' => 'raw',
+                'value' => function (\common\modules\quiz\models\Quiz $model) {
+                    return $model->img('50x50');
+                }
+            ],
             'name',
-            'slug',
-            'introduction:ntext',
+//            'slug',
+            'introduction',
             'escape_html',
             // 'duration',
             // 'countdown_delay',
@@ -39,21 +46,21 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'meta_description',
             // 'meta_keywords',
             // 'sort_order',
-            // 'active',
+             'active:boolean',
             // 'visible',
             // 'doindex',
             // 'dofollow',
             // 'featured',
-            // 'create_time:datetime',
+//             'create_time:datetime',
             // 'update_time:datetime',
-            // 'publish_time:datetime',
+             'publish_time:datetime',
             // 'creator_id',
             // 'updater_id',
             // 'image_id',
             // 'quiz_category_id',
-            // 'view_count',
-            // 'like_count',
-            // 'comment_count',
+             'view_count',
+//             'like_count',
+//             'comment_count',
             // 'share_count',
 
             ['class' => 'yii\grid\ActionColumn'],

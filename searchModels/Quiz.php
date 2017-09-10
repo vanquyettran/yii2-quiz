@@ -49,6 +49,15 @@ class Quiz extends QuizModel
             'query' => $query,
         ]);
 
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'sort'=> [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+        ]);
+
         $this->load($params);
 
         if (!$this->validate()) {
