@@ -133,7 +133,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
 //    {
 //        // Init publish time for new record
 //        if ($this->isNewRecord) {
-//            $this->publish_time = date(self::TIMESTAMP_FORMAT, $this->getDefaultPublishTime());
+//            $this->publish_time = date(self::TIMESTAMP_FORMAT, self::getDefaultPublishTime());
 //        }
 //        parent::__construct($config);
 //    }
@@ -148,14 +148,14 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
     public function beforeSave($insert)
     {
         if (!$this->publish_time) {
-            $this->publish_time = $this->getDefaultPublishTime();
+            $this->publish_time = self::getDefaultPublishTime();
         } else {
             $this->publish_time = strtotime($this->publish_time);
         }
         return parent::beforeSave($insert);
     }
 
-    public function getDefaultPublishTime()
+    public static function getDefaultPublishTime()
     {
         // Round up ten minute (600s)
         return 600 * ceil(time() / 600);

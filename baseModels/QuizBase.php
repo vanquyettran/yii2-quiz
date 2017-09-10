@@ -132,19 +132,19 @@ class QuizBase extends MyActiveRecord
                     $placeholder = 'seconds';
                     break;
                 case 'arguments':
-                    $type = 'TextArea';
+                    $type = 'MonospaceTextArea';
                     switch (self::shortClassName()) {
                         case 'QuizParam':
-                            $placeholder = "\"each one on aline\" \n 123456789 \n true \n null \n [\"abc\", 123, null] \n @r.characters.var_name.gender \n @r.inputs.var_name.value \n @r.params.var_name";
+                            $placeholder = "\"each one on aline\" \n[\"abc\", 123, null] \n@r.characters.var_name.gender \n@r.inputs.var_name.value \n@r.params.var_name \n@statistics.score \n@elapsedTime.closedQAs";
                             break;
                         case 'QuizObjectFilter':
-                            $placeholder = "@item.name \n @r.inputs.your_choice.value \n \"Group 1\" \n 1 \n \"Group 2\" \n 2";
+                            $placeholder = "@item.name \n@r.inputs.your_choice.value \n[\"Group 1\", \"Group 3\"] \n\"odd\" \n[\"Group 2\", \"Group 4\"] \n\"even\" \n\"Group 2\" \n2";
                             break;
                         case 'QuizInputValidator':
-                            $placeholder = "@value \n @type";
+                            $placeholder = "@value \n@type";
                             break;
                         case 'QuizInputOptionChecker':
-                            $placeholder = "@value \n 1000";
+                            $placeholder = "@value \n1000";
                             break;
                     }
                     break;
