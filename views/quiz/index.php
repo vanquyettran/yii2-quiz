@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
 //            'slug',
             'introduction',
-            'escape_html',
+            'escape_html:boolean',
             // 'duration',
             // 'countdown_delay',
             // 'timeout_handling',
@@ -63,7 +63,18 @@ $this->params['breadcrumbs'][] = $this->title;
 //             'comment_count',
             // 'share_count',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update} {view} {delete}',
+                'buttons' => [
+                    'update' => function ($url, $model, $key) {
+                        return Html::a(
+                            '<span class="glyphicon glyphicon-pencil"></span>',
+                            \yii\helpers\Url::to(['default/update', 'id' => $model->id])
+                        );
+                    }
+                ],
+            ],
         ],
     ]); ?>
 </div>
