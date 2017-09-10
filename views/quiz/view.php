@@ -31,6 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'slug',
+            'introduction:ntext',
+            'duration',
+            'countdown_delay',
+            'timeout_handling',
+            'showed_stopwatches',
+            'input_answers_showing',
             'description',
             'meta_title',
             'meta_description',
@@ -48,6 +54,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'updater_id',
             'image_id',
             'quiz_category_id',
+            'view_count',
+            'like_count',
+            'comment_count',
+            'share_count',
         ],
     ]) ?>
 

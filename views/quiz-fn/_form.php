@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use \common\modules\quiz\models\QuizFn;
 
 /* @var $this yii\web\View */
 /* @var $model common\modules\quiz\models\QuizFn */
@@ -19,6 +20,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'parameters')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'return_type')->dropDownList(QuizFn::returnTypes(), ['prompt' => '']) ?>
 
     <?= $form->field($model, 'async')->checkbox() ?>
 

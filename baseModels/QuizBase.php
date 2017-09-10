@@ -74,15 +74,32 @@ class QuizBase extends MyActiveRecord
             } else if (substr($column->name, -3) == '_id') {
                 $type = 'Select';
                 if (substr($column->name, -6) == '_fn_id') {
-                    $quizFns = self::shortClassName() == 'QuizParam'
-                        ? QuizFn::find()->all()
-                        : QuizFn::find()->where(['or', ['async' => 0], ['async' => null]])->all();
+                    $query = QuizFn::find();
+                    if (self::shortClassName() != 'QuizParam') {
+                        $query = $query->andWhere(['or', ['async' => 0], ['async' => null]]);
+                    }
+                    switch (self::shortClassName()) {
+                        case 'QuizInputValidator':
+                        case 'QuizInputOptionChecker':
+                        case 'QuizObjectFilter':
+                        case 'QuizCharacterDataFilter':
+                        case 'QuizCharacterMediumDataFilter':
+                            $query->andWhere(['return_type' => QuizFn::RETURN_TYPE_BOOLEAN]);
+                            break;
+                        case 'QuizCharacterDataSorter':
+                        case 'QuizCharacterMediumDataSorter':
+                            $query->andWhere(['return_type' => QuizFn::RETURN_TYPE_NUMBER]);
+                            break;
+                        case 'QuizParam':
+                            break;
+                    }
+                    $quizFns = $query->all();
                     foreach ($quizFns as $fn) {
                         /**
                          * @var $fn QuizFn
                          */
                         $options[] = [
-                            'label' => "$fn->name( $fn->parameters )",
+                            'label' => "{{$fn->return_type}} {$fn->name}( {$fn->parameters} )",
                             'value' => $fn->id,
                             'extraInfo' => $fn->guideline
                         ];
