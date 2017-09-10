@@ -23,7 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'introduction') ?>
 
-    <?= $form->field($model, 'duration') ?>
+    <?= $form->field($model, 'escape_html') ?>
+
+    <?php // echo $form->field($model, 'duration') ?>
 
     <?php // echo $form->field($model, 'countdown_delay') ?>
 

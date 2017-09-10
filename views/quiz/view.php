@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'slug',
             'introduction:ntext',
+            'escape_html',
             'duration',
             'countdown_delay',
             'timeout_handling',

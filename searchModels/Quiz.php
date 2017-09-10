@@ -18,7 +18,7 @@ class Quiz extends QuizModel
     public function rules()
     {
         return [
-            [['id', 'duration', 'countdown_delay', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id', 'image_id', 'quiz_category_id', 'view_count', 'like_count', 'comment_count', 'share_count'], 'integer'],
+            [['id', 'escape_html', 'duration', 'countdown_delay', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id', 'image_id', 'quiz_category_id', 'view_count', 'like_count', 'comment_count', 'share_count'], 'integer'],
             [['name', 'slug', 'introduction', 'timeout_handling', 'showed_stopwatches', 'input_answers_showing', 'description', 'meta_title', 'meta_description', 'meta_keywords'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class Quiz extends QuizModel
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'escape_html' => $this->escape_html,
             'duration' => $this->duration,
             'countdown_delay' => $this->countdown_delay,
             'sort_order' => $this->sort_order,

@@ -71,7 +71,7 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" drop_inputs
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_input_questions_are_open_column_inputs_appear_simultaneously_column_to_quiz_input_group_table --fields="input_questions_are_open:smallInteger(1),inputs_appear_simultaneously:smallInteger(1)"
 
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_return_type_column_to_quiz_fn_table --fields="return_type:string:notNull"
-php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_active_column_to_quiz_fn_table --fields="active:smallInteger(1)"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_escape_html_column_to_quiz_table --fields="escape_html:smallInteger(1)"
 
 
 
