@@ -91,6 +91,7 @@ class QuizBase extends MyActiveRecord
                             $query->andWhere(['return_type' => QuizFn::RETURN_TYPE_NUMBER]);
                             break;
                         case 'QuizParam':
+                            $query->orderBy('return_type asc, name asc');
                             break;
                     }
                     $quizFns = $query->all();
