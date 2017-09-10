@@ -126,14 +126,27 @@ class QuizBase extends MyActiveRecord
                     $placeholder = 'my_name';
                     break;
                 case 'countdown_delay':
-                    $placeholder = '= 100 by default, means 100% of second <=> 1 second';
+                    $placeholder = '100 by default, means 100% of second <=> 1 second';
                     break;
                 case 'duration':
                     $placeholder = 'seconds';
                     break;
                 case 'arguments':
                     $type = 'TextArea';
-                    $placeholder = "\"Example\"\n123456789\n@r.inputs.your_name.value";
+                    switch (self::shortClassName()) {
+                        case 'QuizParam':
+                            $placeholder = "\"each one on aline\" \n 123456789 \n true \n null \n [\"abc\", 123, null] \n @r.characters.var_name.gender \n @r.inputs.var_name.value \n @r.params.var_name";
+                            break;
+                        case 'QuizObjectFilter':
+                            $placeholder = "@item.name \n @r.inputs.your_choice.value \n \"Group 1\" \n 1 \n \"Group 2\" \n 2";
+                            break;
+                        case 'QuizInputValidator':
+                            $placeholder = "@value \n @type";
+                            break;
+                        case 'QuizInputOptionChecker':
+                            $placeholder = "@value \n 1000";
+                            break;
+                    }
                     break;
             }
 
