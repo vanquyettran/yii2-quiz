@@ -55,18 +55,6 @@ class QuizBase extends MyActiveRecord
             ])) {
 //                $type = 'Hidden';
                 $type = 'None';
-            } else if ($column->name == 'name') {
-                $type = 'Text';
-                $placeholder = 'My Name';
-            } else if ($column->name == 'var_name') {
-                $type = 'Text';
-                $placeholder = 'my_name';
-            } else if ($column->name == 'countdown_delay') {
-                $type = 'Number';
-                $placeholder = '= 100 by default, means 100% of second <=> 1 second';
-            } else if ($column->name == 'arguments') {
-                $type = 'TextArea';
-                $placeholder = "\"Example\"\n123456789\n@r.inputs.your_name.value";
             } else if ($column->name == 'image_id') {
                 $type = 'ImageSelect';
             } else if (substr($column->name, -5) == '_time') {
@@ -129,6 +117,26 @@ class QuizBase extends MyActiveRecord
                         break;
                 }
             }
+
+            switch ($column->name) {
+                case 'name':
+                    $placeholder = 'My Name';
+                    break;
+                case 'var_name':
+                    $placeholder = 'my_name';
+                    break;
+                case 'countdown_delay':
+                    $placeholder = '= 100 by default, means 100% of second <=> 1 second';
+                    break;
+                case 'duration':
+                    $placeholder = 'seconds';
+                    break;
+                case 'arguments':
+                    $type = 'TextArea';
+                    $placeholder = "\"Example\"\n123456789\n@r.inputs.your_name.value";
+                    break;
+            }
+
             $inputConfig = [
                 'type' => $type,
                 'name' => $column->name,
