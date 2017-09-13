@@ -56,7 +56,8 @@ if (Yii::$app->request->get('use_local_asset') == 1) {
                         HTTP_ERROR: 'Status: ' + this.status
                         + ', Status Text: ' + this.statusText
                         + ', Response Text' + this.responseText
-                    }
+                    },
+                    success: false
                 });
             }
         };
