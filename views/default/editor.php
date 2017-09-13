@@ -50,6 +50,14 @@ if (Yii::$app->request->get('use_local_asset') == 1) {
 //                return res;
                 callback(res);
             } else {
+                callback({
+                    state: state,
+                    errors: {
+                        HTTP_ERROR: 'Status: ' + this.status
+                        + ', Status Text: ' + this.statusText
+                        + ', Response Text' + this.responseText
+                    }
+                });
             }
         };
         xhr.upload.onprogress = function(event) {
