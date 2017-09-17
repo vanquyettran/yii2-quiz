@@ -61,6 +61,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         'closedQAs',
                     ];
                     break;
+                case 'escape_html':
                 case 'active':
                 case 'visible':
                 case 'doindex':
