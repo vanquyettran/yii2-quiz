@@ -142,7 +142,12 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
     public function afterFind()
     {
         // Init publish time for record found
-        $this->publish_time = date(self::TIMESTAMP_FORMAT, $this->publish_time);
+        if (   Yii::$app->controller
+            && Yii::$app->controller->action
+            && in_array(Yii::$app->controller->action->id, ['create', 'update'])
+        ) {
+            $this->publish_time = date(self::TIMESTAMP_FORMAT, $this->publish_time);
+        }
         parent::afterFind();
     }
 
@@ -379,7 +384,9 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             $attrs['quiz_style_ids'] = array_map(function ($item) {
                 return $item->id;
             }, $quizStyles);
-            $attrs['image_src'] = $item->image ? $item->image->getSource() : '';
+            if (!$attrs['image_src'] && $item->image) {
+                $attrs['image_src'] = $item->image->getSource();
+            }
             return $attrs;
         }, $quizShapes);
         $_quizStyles = array_map(function ($item) {

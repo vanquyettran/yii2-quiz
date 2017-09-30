@@ -146,6 +146,15 @@ class QuizBase extends MyActiveRecord
                         case 'QuizInputOptionChecker':
                             $placeholder = "@value \n1000";
                             break;
+                        case 'QuizCharacterDataSorter':
+                        case 'QuizCharacterMediumDataSorter':
+                            $placeholder = "@a.birthday \n@b.birthday";
+                            break;
+                        case 'QuizCharacterDataFilter':
+                        case 'QuizCharacterMediumDataFilter':
+                            $placeholder = "@item.name \n@index \n@data";
+                            break;
+
                     }
                     break;
             }
