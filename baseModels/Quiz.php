@@ -10,8 +10,11 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property string $slug
+ * @property string $type
  * @property string $introduction
+ * @property integer $draft
  * @property integer $escape_html
+ * @property integer $shuffle_results
  * @property integer $duration
  * @property integer $countdown_delay
  * @property string $timeout_handling
@@ -35,6 +38,7 @@ use Yii;
  * @property integer $image_id
  * @property integer $quiz_category_id
  * @property integer $view_count
+ * @property integer $play_count
  * @property integer $like_count
  * @property integer $comment_count
  * @property integer $share_count
@@ -53,7 +57,7 @@ use Yii;
  * @property QuizShape[] $quizShapes
  * @property QuizStyle[] $quizStyles
  */
-class Quiz extends QuizBase
+class Quiz extends \common\modules\quiz\baseModels\QuizBase
 {
     /**
      * @inheritdoc
@@ -69,10 +73,10 @@ class Quiz extends QuizBase
     public function rules()
     {
         return [
-            [['name', 'slug', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id'], 'required'],
+            [['name', 'slug', 'type', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id'], 'required'],
             [['introduction'], 'string'],
-            [['escape_html', 'duration', 'countdown_delay', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id', 'image_id', 'quiz_category_id', 'view_count', 'like_count', 'comment_count', 'share_count'], 'integer'],
-            [['name', 'slug', 'timeout_handling', 'showed_stopwatches', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
+            [['draft', 'escape_html', 'shuffle_results', 'duration', 'countdown_delay', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id', 'image_id', 'quiz_category_id', 'view_count', 'play_count', 'like_count', 'comment_count', 'share_count'], 'integer'],
+            [['name', 'slug', 'type', 'timeout_handling', 'showed_stopwatches', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
             [['description', 'meta_description', 'meta_keywords'], 'string', 'max' => 511],
             [['name'], 'unique'],
             [['slug'], 'unique'],
@@ -92,8 +96,11 @@ class Quiz extends QuizBase
             'id' => 'ID',
             'name' => 'Name',
             'slug' => 'Slug',
+            'type' => 'Type',
             'introduction' => 'Introduction',
+            'draft' => 'Draft',
             'escape_html' => 'Escape Html',
+            'shuffle_results' => 'Shuffle Results',
             'duration' => 'Duration',
             'countdown_delay' => 'Countdown Delay',
             'timeout_handling' => 'Timeout Handling',
@@ -117,6 +124,7 @@ class Quiz extends QuizBase
             'image_id' => 'Image ID',
             'quiz_category_id' => 'Quiz Category ID',
             'view_count' => 'View Count',
+            'play_count' => 'Play Count',
             'like_count' => 'Like Count',
             'comment_count' => 'Comment Count',
             'share_count' => 'Share Count',
