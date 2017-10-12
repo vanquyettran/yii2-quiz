@@ -392,7 +392,9 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
             $attrs['quiz_style_ids'] = array_map(function ($item) {
                 return $item->id;
             }, $quizStyles);
-            $attrs['image_src'] = $item->image ? $item->image->getSource() : '';
+            if (!$attrs['image_src'] && $item->image) {
+                $attrs['image_src'] = $item->image->getSource();
+            }
             return $attrs;
         }, $quizShapes);
         $_quizStyles = array_map(function ($item) {
