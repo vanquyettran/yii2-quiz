@@ -23,6 +23,11 @@ if (Yii::$app->request->get('use_local_asset') == 1) {
     QuizEditorAsset::register($this);
 };
 ?>
+<style>
+    input, select, textarea {
+        font-size: 16px;
+    }
+</style>
 <div id="quiz-editor-root"></div>
 <script>
     window.QuizEditorRoot = document.getElementById("quiz-editor-root");
