@@ -24,8 +24,10 @@ if (Yii::$app->request->get('use_local_asset') == 1) {
 };
 ?>
 <style>
-    input, select, textarea {
-        font-size: 16px;
+    #quiz-editor-root input,
+    #quiz-editor-root select,
+    #quiz-editor-root textarea {
+        font-size: 16px !important;
     }
 </style>
 <div id="quiz-editor-root"></div>

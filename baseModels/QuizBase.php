@@ -53,7 +53,7 @@ class QuizBase extends MyActiveRecord
                 'id',
                 'task_order',
                 'sort_order',
-//                'apply_order',
+                'apply_order',
             ])) {
 //                $type = 'Hidden';
                 $type = 'None';
