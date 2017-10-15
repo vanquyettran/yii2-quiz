@@ -75,6 +75,9 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_escape_
 
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_image_src_column_to_quiz_shape_table --fields="image_src:text"
 
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_apply_order_column_to_quiz_character_data_filter_table --fields="apply_order:integer:notNull"
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_apply_order_column_to_quiz_character_medium_data_filter_table --fields="apply_order:integer:notNull"
+
 
 
 
