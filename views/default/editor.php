@@ -37,9 +37,9 @@ if (Yii::$app->request->get('use_local_asset') == 1) {
             type: <?= json_encode($type) ?>,
             attrs: <?= json_encode($attrs) ?>,
             childConfigs: <?= json_encode($childConfigs) ?>,
-            childrenData: <?= json_encode($childrenData) ?>,
-            orderAttrNames: <?= json_encode(Quiz::ORDER_ATTRIBUTES) ?>
+            childrenData: <?= json_encode($childrenData) ?>
         },
+        orderAttrNames: <?= json_encode(Quiz::ORDER_ATTRIBUTES) ?>,
         imagesAPI: <?= json_encode(Url::to(['image/search'], true)) ?>
     };
     //==========================================
