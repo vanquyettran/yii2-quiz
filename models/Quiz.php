@@ -536,31 +536,47 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
         $getChildrenData = function (array $children) use (&$getChildrenData, $inputGroupConfig, $inputConfig, $inputOptionConfig, $characterConfig, $characterMediumConfig) {
             $childrenData = ['items' => [], 'activeItemId' => null, 'errorItemIds' => []];
             usort($children, function ($a, $b) {
-                /**
-                 * @var $a QuizCharacter|QuizParam|QuizCharacterMedium|QuizInputGroup|...
-                 * @var $b QuizCharacter|QuizParam|QuizCharacterMedium|QuizInputGroup|...
-                 */
-                if ($a->hasAttribute('task_order') && $b->hasAttribute('task_order')) {
-                    return $a->task_order - $b->task_order;
-                }
-                if ($a->hasAttribute('task_order')) {
-                    return -1;
-                }
-                if ($b->hasAttribute('task_order')) {
-                    return 1;
-                }
-                /**
-                 * @var $a QuizInput|QuizInputOption|...
-                 * @var $b QuizInput|QuizInputOption|...
-                 */
-                if ($a->hasAttribute('sort_order') && $b->hasAttribute('sort_order')) {
-                    return $a->sort_order - $b->sort_order;
-                }
-                if ($a->hasAttribute('sort_order')) {
-                    return -1;
-                }
-                if ($b->hasAttribute('sort_order')) {
-                    return 1;
+//                /**
+//                 * @var $a QuizCharacter|QuizParam|QuizCharacterMedium|QuizInputGroup|...
+//                 * @var $b QuizCharacter|QuizParam|QuizCharacterMedium|QuizInputGroup|...
+//                 */
+//                if ($a->hasAttribute('task_order') && $b->hasAttribute('task_order')) {
+//                    return $a->task_order - $b->task_order;
+//                }
+//                if ($a->hasAttribute('task_order')) {
+//                    return -1;
+//                }
+//                if ($b->hasAttribute('task_order')) {
+//                    return 1;
+//                }
+//                /**
+//                 * @var $a QuizInput|QuizInputOption|...
+//                 * @var $b QuizInput|QuizInputOption|...
+//                 */
+//                if ($a->hasAttribute('sort_order') && $b->hasAttribute('sort_order')) {
+//                    return $a->sort_order - $b->sort_order;
+//                }
+//                if ($a->hasAttribute('sort_order')) {
+//                    return -1;
+//                }
+//                if ($b->hasAttribute('sort_order')) {
+//                    return 1;
+//                }
+
+                foreach (self::ORDER_ATTRIBUTES as $attrName) {
+                    /**
+                     * @var $a QuizInput|QuizInputOption|...
+                     * @var $b QuizInput|QuizInputOption|...
+                     */
+                    if ($a->hasAttribute($attrName) && $b->hasAttribute($attrName)) {
+                        return $a->$attrName - $b->$attrName;
+                    }
+                    if ($a->hasAttribute($attrName)) {
+                        return -1;
+                    }
+                    if ($b->hasAttribute($attrName)) {
+                        return 1;
+                    }
                 }
 
                 return 0;
