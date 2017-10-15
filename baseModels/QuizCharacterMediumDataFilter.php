@@ -17,7 +17,7 @@ use Yii;
  * @property QuizCharacterMedium $quizCharacterMedium
  * @property QuizFn $quizFn
  */
-class QuizCharacterMediumDataFilter extends \yii\db\ActiveRecord
+class QuizCharacterMediumDataFilter extends QuizBase
 {
     /**
      * @inheritdoc
