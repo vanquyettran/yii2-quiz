@@ -42,6 +42,7 @@ class QuizBase extends MyActiveRecord
                 'comment_count',
                 'like_count',
                 'share_count',
+                'play_count',
             ])) {
                 continue;
             }
@@ -52,6 +53,7 @@ class QuizBase extends MyActiveRecord
                 'id',
                 'task_order',
                 'sort_order',
+                'apply_order',
             ])) {
 //                $type = 'Hidden';
                 $type = 'None';

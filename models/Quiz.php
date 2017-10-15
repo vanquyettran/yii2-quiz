@@ -842,6 +842,8 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
         ];
     }
 
+    const ORDER_ATTRIBUTES = ['task_order', 'sort_order', 'apply_order'];
+
     public static function getCreateConfigs()
     {
         $inputGroupConfig = QuizInputGroup::modelConfig();
@@ -946,8 +948,10 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
         $testingId = function () {
             return rand(0, 999999999);
         };
-        $task_order = 0;
-        $sort_order = 0;
+        $orderList = [];
+        foreach (self::ORDER_ATTRIBUTES as $item) {
+            $orderList[$item] = 0;
+        }
         $junctions = [
 //            'Quiz' => [
 ///*
@@ -1095,7 +1099,7 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
          */
         $loadModels = function (&$data, $parent, $test)
         use ($parseAttrs, $testingId, $quiz_component_types, $addJunction,
-            &$loadModels, &$allErrors, &$task_order, &$sort_order, &$junctions) {
+            &$loadModels, &$allErrors, &$orderList, &$junctions) {
             // Delete no longer children
             $oldChildren = [];
             if (!$parent->isNewRecord) {
@@ -1171,10 +1175,18 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                     if ($test) {
                         $model->scenario = 'test';
                     }
-                    $task_order++;
-                    $sort_order++;
-                    $attrs['task_order'] = $task_order;
-                    $attrs['sort_order'] = $sort_order;
+                    foreach($orderList as $attrName => &$val) {
+                        if ($model->hasAttribute($attrName)) {
+                            $val++;
+                            $attrs[$attrName] = $val;
+                        }
+                    }
+//                    $task_order++;
+//                    $sort_order++;
+//                    $apply_order++;
+//                    $attrs['task_order'] = $task_order;
+//                    $attrs['sort_order'] = $sort_order;
+//                    $attrs['apply_order'] = $apply_order;
 
                     // Each model can has only one of these attributes:
                     // quiz_id, quiz_character_id, quiz_input_group_id, quiz_input_id
@@ -1187,8 +1199,14 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
                         = $parent->id;
                     $model->setAttributes($attrs);
                     if (!$model->validate()) {
-                        $task_order--;
-                        $sort_order--;
+                        foreach($orderList as $attrName => &$val) {
+                            if ($model->hasAttribute($attrName)) {
+                                $val--;
+                            }
+                        }
+//                        $task_order--;
+//                        $sort_order--;
+//                        $apply_order--;
                         $allErrors["{$childData['type']}#{$childData['id']}"] = $model->errors;
                         foreach ($model->errors as $attrName => $errors) {
                             foreach ($childData['attrs'] as &$attr) {
