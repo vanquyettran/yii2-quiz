@@ -12,9 +12,8 @@
  * @var array $childConfigs
  * @var array $childrenData
  */
-use common\modules\quiz\models\Quiz;
 use yii\helpers\Url;
-use common\modules\quiz\QuizEditorAsset;
+use \common\modules\quiz\QuizEditorAsset;
 use common\modules\quiz\LocalQuizEditorAsset;
 
 if (Yii::$app->request->get('use_local_asset') == 1) {
@@ -23,13 +22,6 @@ if (Yii::$app->request->get('use_local_asset') == 1) {
     QuizEditorAsset::register($this);
 };
 ?>
-<style>
-    #quiz-editor-root input,
-    #quiz-editor-root select,
-    #quiz-editor-root textarea {
-        font-size: 16px !important;
-    }
-</style>
 <div id="quiz-editor-root"></div>
 <script>
     window.QuizEditorRoot = document.getElementById("quiz-editor-root");
@@ -41,7 +33,6 @@ if (Yii::$app->request->get('use_local_asset') == 1) {
             childConfigs: <?= json_encode($childConfigs) ?>,
             childrenData: <?= json_encode($childrenData) ?>
         },
-        orderAttrNames: <?= json_encode(Quiz::ORDER_ATTRIBUTES) ?>,
         imagesAPI: <?= json_encode(Url::to(['image/search'], true)) ?>
     };
     //==========================================

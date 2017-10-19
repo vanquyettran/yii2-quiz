@@ -20,6 +20,7 @@ use yii\helpers\VarDumper;
 class Quiz extends \common\modules\quiz\baseModels\Quiz
 {
     const ARGUMENTS_ATTR_SEPARATOR = "\n";
+    const EXPORTED_PLAY_PROPS_MAX_LENGTH = 256 * 1024;
 
     const TYPE_MIXED = 'Mixed';
     const TYPE_GRADED = 'Graded';
@@ -161,11 +162,19 @@ class Quiz extends \common\modules\quiz\baseModels\Quiz
 
     public function beforeSave($insert)
     {
+        // Save publish time
         if (!$this->publish_time) {
             $this->publish_time = self::getDefaultPublishTime();
         } else if (!is_int($this->publish_time)) {
             $this->publish_time = strtotime($this->publish_time);
         }
+
+        // Save Exported play props
+        $exported_play_props = json_encode($this->getPlayProps());
+        if (strlen($exported_play_props) <= self::EXPORTED_PLAY_PROPS_MAX_LENGTH) {
+            $this->exported_play_props = $exported_play_props;
+        }
+
         return parent::beforeSave($insert);
     }
 
