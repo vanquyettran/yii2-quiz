@@ -43,6 +43,7 @@ class QuizBase extends MyActiveRecord
                 'like_count',
                 'share_count',
                 'play_count',
+                'exported_play_props',
             ])) {
                 continue;
             }

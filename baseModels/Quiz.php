@@ -42,6 +42,7 @@ use Yii;
  * @property integer $like_count
  * @property integer $comment_count
  * @property integer $share_count
+ * @property string $exported_play_props
  *
  * @property User $creator
  * @property Image $image
@@ -57,7 +58,7 @@ use Yii;
  * @property QuizShape[] $quizShapes
  * @property QuizStyle[] $quizStyles
  */
-class Quiz extends \common\modules\quiz\baseModels\QuizBase
+class Quiz extends QuizBase
 {
     /**
      * @inheritdoc
@@ -74,7 +75,7 @@ class Quiz extends \common\modules\quiz\baseModels\QuizBase
     {
         return [
             [['name', 'slug', 'type', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id'], 'required'],
-            [['introduction'], 'string'],
+            [['introduction', 'exported_play_props'], 'string'],
             [['draft', 'escape_html', 'shuffle_results', 'duration', 'countdown_delay', 'sort_order', 'active', 'visible', 'doindex', 'dofollow', 'featured', 'create_time', 'update_time', 'publish_time', 'creator_id', 'updater_id', 'image_id', 'quiz_category_id', 'view_count', 'play_count', 'like_count', 'comment_count', 'share_count'], 'integer'],
             [['name', 'slug', 'type', 'timeout_handling', 'showed_stopwatches', 'input_answers_showing', 'meta_title'], 'string', 'max' => 255],
             [['description', 'meta_description', 'meta_keywords'], 'string', 'max' => 511],
@@ -128,6 +129,7 @@ class Quiz extends \common\modules\quiz\baseModels\QuizBase
             'like_count' => 'Like Count',
             'comment_count' => 'Comment Count',
             'share_count' => 'Share Count',
+            'exported_play_props' => 'Exported Play Props',
         ];
     }
 
