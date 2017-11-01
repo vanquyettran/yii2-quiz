@@ -81,7 +81,7 @@ php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_apply_o
 php yii my-migrate/create --migrationPath="@modules/quiz/migrations" add_exported_play_props_column_to_quiz_table --fields="exported_play_props:text"
 
 
-
+php yii my-migrate/create --migrationPath="@modules/quiz/migrations" drop_task_order_column_from_quiz_character_medium_table --fields="task_order:integer:notNull"
 
 
 
